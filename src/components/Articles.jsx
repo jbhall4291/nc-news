@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { getArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
-import "./Articles.css"
+import "../styling/Articles.css"
 
 const Articles = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -10,7 +10,6 @@ const Articles = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    // go get the articles
     getArticles().then((articlesData) => {
       setArticles(articlesData);
       setIsLoading(false);
