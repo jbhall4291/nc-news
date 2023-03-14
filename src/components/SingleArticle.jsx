@@ -13,8 +13,8 @@ const SingleArticle = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getArticleById(article_id).then((item) => {
-      setArticleData(item);
+    getArticleById(article_id).then((article) => {
+      setArticleData(article);
       setIsLoading(false);
     });
   }, []);

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { isCompositeComponent } from "react-dom/test-utils";
 
 const newsAPI = axios.create({
     baseURL: "https://backend-project-nc-news-49l4.onrender.com/api",
