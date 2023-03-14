@@ -5,6 +5,7 @@ import ArticleCard from "./ArticleCard";
 import "../styling/Articles.css";
 
 const Articles = () => {
+  
   const [isLoading, setIsLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 

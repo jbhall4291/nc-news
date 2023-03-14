@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticleById } from "../utils/api";
 import CommentAdder from "./CommentAdder";
+import Comments from "./Comments";
 import "../styling/SingleArticle.css";
 
 import React from "react";
@@ -56,7 +57,7 @@ const SingleArticle = () => {
           <h4>{articleData.body}</h4>
           <h4>{pluraliseComments(articleData.comment_count)}</h4>
           <CommentAdder />
-          <p>placeholder for Comments</p>
+          <Comments article_id={article_id} />
         </section>
       )}
     </div>
