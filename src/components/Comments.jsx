@@ -25,7 +25,7 @@ const Comments = () => {
         <p>loading comments, please wait...</p>
       ) :
       (
-        <ul>
+        <ul className="Comments__ul">
           {comments.map((comment) => {
             return (
               <CommentCard

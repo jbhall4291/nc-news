@@ -22,7 +22,7 @@ const Articles = () => {
       {isLoading ? (
         <p>loading articles, please wait...</p>
       ) : (
-        <ul>
+        <ul className="Articles__ul">
           {articles.map((article) => {
             return (
               <ArticleCard
