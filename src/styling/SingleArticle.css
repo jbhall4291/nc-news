@@ -1,0 +1,22 @@
+.SingleArticle__section {
+    background-color: lightskyblue;
+    margin: 0px;
+    height: 100%;
+}
+
+.SingleArticle__h3 {
+    margin: 0px;
+}
+
+.SingleArticle__h4 {
+    margin: 0px;
+}
+
+.SingleArticle__h5 {
+    margin: 0px;
+    font-style: italic;
+}
+
+.SingleArticle__img {
+width: 100vw;
+}
