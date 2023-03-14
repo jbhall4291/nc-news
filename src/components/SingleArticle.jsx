@@ -24,6 +24,14 @@ const SingleArticle = () => {
     return `at ${date.toLocaleTimeString()} on ${date.toDateString()}`;
   };
 
+  const pluraliseComments = (comment_count) => {
+    if (comment_count === 0) return `No comments`;
+    else if (comment_count === 1) return `${comment_count} comment`;
+    else {
+      return `${comment_count} comments`;
+    }
+  };
+
   return (
     <div>
       {isLoading ? (
@@ -45,7 +53,7 @@ const SingleArticle = () => {
             alt={articleData.title}
           ></img>
           <h4>{articleData.body}</h4>
-          <h4>{articleData.comment_count} comments</h4>
+          <h4>{pluraliseComments(articleData.comment_count)}</h4>
         </section>
       )}
     </div>
