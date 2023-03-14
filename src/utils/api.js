@@ -1,4 +1,5 @@
 import axios from "axios";
+import { isCompositeComponent } from "react-dom/test-utils";
 
 const newsAPI = axios.create({
     baseURL: "https://backend-project-nc-news-49l4.onrender.com/api",
@@ -8,6 +9,16 @@ const newsAPI = axios.create({
   export const getArticles = () => {
     return newsAPI.get("/articles").then((res) => {
       const articles = res.data.articles;
+      return articles;
+    });
+    // .catch(error)
+  };
+
+
+  export const getArticleById = (article_id) => {
+    return newsAPI.get(`/articles/${article_id}`).then((res) => {
+      const articles = res.data.article;
+      console.log(articles)
       return articles;
     });
     // .catch(error)
