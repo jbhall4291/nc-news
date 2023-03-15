@@ -31,3 +31,20 @@ const newsAPI = axios.create({
     });
     // .catch(error)
   };
+
+  export const postComment = (article_id, finalisedComment) => {
+    const commentObject = {
+      //need to hardcode an existing user in db
+      username: "cooljmessy",
+      body: finalisedComment
+    }
+
+    console.log(JSON.stringify(commentObject) + " <<< commentObject before sending");
+
+    return newsAPI.post(`/articles/${article_id}/comments`, commentObject).then((res) => {
+      const commentInserted = res.data.commentInserted;
+      console.log(JSON.stringify(res.data.commentInserted) + " <<<< response")
+      return commentInserted;
+    });
+    // .catch(error)
+  }
