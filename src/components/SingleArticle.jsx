@@ -5,6 +5,7 @@ import CommentAdder from "./CommentAdder";
 import Comments from "./Comments";
 import "../styling/SingleArticle.css";
 import { convertTimeAndDate } from "../utils/functions";
+import { ThumbsUp, ThumbsDown } from "phosphor-react";
 
 import React from "react";
 
@@ -14,13 +15,8 @@ const SingleArticle = () => {
   const [articleData, setArticleData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  const [isVotingError, setIsVotingError] = useState(false);
-
-  // const [userVote, setUserVote] = useState(0);
-  // const [upVoted, setUpVoted] = useState(false);
-  // const [downVoted, setDownVoted] = useState(false);
-
   const [votes, setVotes] = useState(0);
+  const [isVotingError, setIsVotingError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -41,101 +37,28 @@ const SingleArticle = () => {
 
   const updateVotes = (vote) => {
     if (localStorage.getItem(article_id)) {
-      console.log("already voted on this article!");
+      localStorage.removeItem(article_id, "userHasVoted");
+      setIsVotingError(false);
+
+      setVotes(votes - 1);
+
+      voteOnArticle(article_id, { inc_votes: vote }).catch(() => {
+        setIsVotingError(true);
+        setVotes((currentVotes) => currentVotes + vote);
+        localStorage.setItem(article_id, "userHasVoted");
+      });
     } else {
       localStorage.setItem(article_id, "userHasVoted");
       setIsVotingError(false);
+
       setVotes((currentVotes) => currentVotes + vote);
       voteOnArticle(article_id, { inc_votes: vote }).catch(() => {
         setIsVotingError(true);
         setVotes((currentVotes) => currentVotes - vote);
+        localStorage.removeItem(article_id, "userHasVoted");
       });
     }
   };
-
-  // refactor voteUp & voteDown later
-  // const voteUp = () => {
-  //   if (!upVoted && !downVoted) {
-  //     setIsVotingError(false);
-  //     setUserVote(1);
-  //     setUpVoted(true);
-  //     voteUpArticle(article_id).catch(() => {
-  //       console.log("something went wrong with upvote!");
-  //       setIsVotingError(true);
-  //       setUserVote(0);
-  //       setUpVoted(false);
-  //       setDownVoted(false);
-  //     });
-  //   } else if (!upVoted && downVoted) {
-  //     setIsVotingError(false);
-  //     setUpVoted(true);
-  //     setDownVoted(false);
-  //     setUserVote(1);
-
-  //     voteUpArticle(article_id).catch(() => {
-  //       setIsVotingError(true);
-  //       setUserVote(-1);
-  //       setUpVoted(false);
-  //       setDownVoted(true);
-  //     });
-  //     voteUpArticle(article_id).catch(() => {
-  //       setIsVotingError(true);
-  //       setUserVote(-1);
-  //       setUpVoted(false);
-  //       setDownVoted(true);
-  //     });
-  //   } else if (upVoted) {
-  //     setIsVotingError(false);
-  //     setUserVote(0);
-  //     setUpVoted(false);
-  //     voteDownArticle(article_id).catch(() => {
-  //       setIsVotingError(true);
-  //       setUserVote(1);
-  //       setUpVoted(true);
-  //       setDownVoted(false);
-  //     });
-  //   }
-  // };
-
-  // const voteDown = () => {
-  //   if (!downVoted && !upVoted) {
-  //     setIsVotingError(false);
-  //     setUserVote(-1);
-  //     setDownVoted(true);
-  //     voteDownArticle(article_id).catch(() => {
-  //       setIsVotingError(true);
-  //       setUserVote(0);
-  //       setDownVoted(false);
-  //       setUpVoted(false);
-  //     });
-  //   } else if (!downVoted && upVoted) {
-  //     setIsVotingError(false);
-  //     setDownVoted(true);
-  //     setUpVoted(false);
-  //     setUserVote(-1);
-  //     voteDownArticle(article_id).catch(() => {
-  //       setIsVotingError(true);
-  //       setUserVote(1);
-  //       setUpVoted(true);
-  //       setDownVoted(false);
-  //     });
-  //     voteDownArticle(article_id).catch(() => {
-  //       setIsVotingError(true);
-  //       setUserVote(1);
-  //       setUpVoted(true);
-  //       setDownVoted(false);
-  //     });
-  //   } else if (downVoted) {
-  //     setIsVotingError(false);
-  //     setUserVote(0);
-  //     setDownVoted(false);
-  //     voteUpArticle(article_id).catch(() => {
-  //       setIsVotingError(true);
-  //       setUserVote(-1);
-  //       setDownVoted(true);
-  //     });
-  //   }
-  // };
 
   return (
     <div>
@@ -159,9 +82,22 @@ const SingleArticle = () => {
           <h4 className="SingleArticle__h4">{articleData.body}</h4>
           <div>
             {localStorage.getItem(article_id) ? (
-              <button disabled={true}>Already done!</button>
+              <button
+                className="SingleArticle__button--upvote-voted-up"
+                onClick={() => updateVotes(-1)}
+                // disabled={true}
+              >
+                <ThumbsUp size={32} />
+                <span>Voted!</span>
+              </button>
             ) : (
-              <button onClick={() => updateVotes(1)}>Up Vote</button>
+              <button
+                className="SingleArticle__button--upvote-no-vote"
+                onClick={() => updateVotes(1)}
+              >
+                <ThumbsUp size={32} />
+                
+              </button>
             )}
 
             {isVotingError ? (
@@ -172,12 +108,23 @@ const SingleArticle = () => {
               <h4 className="SingleArticle__h4">Votes: {votes}</h4>
             )}
 
-            {localStorage.getItem(article_id) ? (
-              <button disabled={true}>Already done!</button>
+            {/* {localStorage.getItem(article_id) ? (
+              <button
+                className="SingleArticle__button--downvote-voted-down"
+                disabled={true}
+              >
+                <ThumbsDown size={32} />
+              </button>
             ) : (
-              <button onClick={() => updateVotes(-1)}>Down Vote</button>
-            )}
+              <button
+                className="SingleArticle__button--downvote-no-vote"
+                onClick={() => updateVotes(-1)}
+              >
+                <ThumbsDown size={32} />
+              </button>
+            )} */}
           </div>
+
           <h4 className="SingleArticle__h4">
             {pluraliseComments(articleData.comment_count)}
           </h4>
