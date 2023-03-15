@@ -13,8 +13,9 @@ const SingleArticle = () => {
 
   const [articleData, setArticleData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [userVote, setUserVote] = useState(0);
 
+  const [isVotingError, setIsVotingError] = useState(false);
+  const [userVote, setUserVote] = useState(0);
   const [upVoted, setUpVoted] = useState(false);
   const [downVoted, setDownVoted] = useState(false);
 
@@ -34,37 +35,43 @@ const SingleArticle = () => {
     }
   };
 
-
-// refactor voteUp & voteDown later
+  // refactor voteUp & voteDown later
   const voteUp = () => {
     if (!upVoted && !downVoted) {
+      setIsVotingError(false);
       setUserVote(1);
       setUpVoted(true);
       voteUpArticle(article_id).catch(() => {
         console.log("something went wrong with upvote!");
+        setIsVotingError(true);
         setUserVote(0);
         setUpVoted(false);
         setDownVoted(false);
       });
     } else if (!upVoted && downVoted) {
+      setIsVotingError(false);
       setUpVoted(true);
       setDownVoted(false);
       setUserVote(1);
-      
+
       voteUpArticle(article_id).catch(() => {
+        setIsVotingError(true);
         setUserVote(-1);
         setUpVoted(false);
         setDownVoted(true);
       });
       voteUpArticle(article_id).catch(() => {
+        setIsVotingError(true);
         setUserVote(-1);
         setUpVoted(false);
         setDownVoted(true);
       });
     } else if (upVoted) {
+      setIsVotingError(false);
       setUserVote(0);
       setUpVoted(false);
       voteDownArticle(article_id).catch(() => {
+        setIsVotingError(true);
         setUserVote(1);
         setUpVoted(true);
         setDownVoted(false);
@@ -74,31 +81,38 @@ const SingleArticle = () => {
 
   const voteDown = () => {
     if (!downVoted && !upVoted) {
+      setIsVotingError(false);
       setUserVote(-1);
       setDownVoted(true);
       voteDownArticle(article_id).catch(() => {
+        setIsVotingError(true);
         setUserVote(0);
         setDownVoted(false);
         setUpVoted(false);
       });
     } else if (!downVoted && upVoted) {
+      setIsVotingError(false);
       setDownVoted(true);
       setUpVoted(false);
       setUserVote(-1);
       voteDownArticle(article_id).catch(() => {
+        setIsVotingError(true);
         setUserVote(1);
         setUpVoted(true);
         setDownVoted(false);
       });
       voteDownArticle(article_id).catch(() => {
+        setIsVotingError(true);
         setUserVote(1);
         setUpVoted(true);
         setDownVoted(false);
       });
     } else if (downVoted) {
+      setIsVotingError(false);
       setUserVote(0);
       setDownVoted(false);
       voteUpArticle(article_id).catch(() => {
+        setIsVotingError(true);
         setUserVote(-1);
         setDownVoted(true);
       });
@@ -137,9 +151,15 @@ const SingleArticle = () => {
               Up Vote
             </button>
 
-            <h4 className="SingleArticle__h4">
-              Votes: {articleData.votes + userVote}
-            </h4>
+            {isVotingError ? (
+              <h4 className="SingleArticle__h4--error">
+                voting error check connection
+              </h4>
+            ) : (
+              <h4 className="SingleArticle__h4">
+                Votes: {articleData.votes + userVote}
+              </h4>
+            )}
 
             <button
               className={

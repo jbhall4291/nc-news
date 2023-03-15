@@ -12,6 +12,11 @@
     margin: 5px;
 }
 
+.SingleArticle__h4--error {
+    margin: 5px;
+    color: red;
+}
+
 .SingleArticle__h5 {
     margin: 5px;
     font-style: italic;
