@@ -15,6 +15,7 @@ const SingleArticle = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const [isVotingError, setIsVotingError] = useState(false);
+
   // const [userVote, setUserVote] = useState(0);
   // const [upVoted, setUpVoted] = useState(false);
   // const [downVoted, setDownVoted] = useState(false);
@@ -39,12 +40,17 @@ const SingleArticle = () => {
   };
 
   const updateVotes = (vote) => {
-    setIsVotingError(false);
-    setVotes((currentVotes) => currentVotes + vote);
-    voteOnArticle(article_id, { inc_votes: vote }).catch((error) => {
-      setIsVotingError(true);
-      setVotes((currentVotes) => currentVotes - vote);
-    });
+    if (localStorage.getItem(article_id)) {
+      console.log("already voted on this article!");
+    } else {
+      localStorage.setItem(article_id, "userHasVoted");
+      setIsVotingError(false);
+      setVotes((currentVotes) => currentVotes + vote);
+      voteOnArticle(article_id, { inc_votes: vote }).catch(() => {
+        setIsVotingError(true);
+        setVotes((currentVotes) => currentVotes - vote);
+      });
+    }
   };
 
   // refactor voteUp & voteDown later
@@ -152,17 +158,25 @@ const SingleArticle = () => {
           ></img>
           <h4 className="SingleArticle__h4">{articleData.body}</h4>
           <div>
-            <button onClick={() => updateVotes(1)}>Up Vote</button>
+            {localStorage.getItem(article_id) ? (
+              <button disabled={true}>Already done!</button>
+            ) : (
+              <button onClick={() => updateVotes(1)}>Up Vote</button>
+            )}
 
             {isVotingError ? (
               <h4 className="SingleArticle__h4--error">
-              Error Voting: Check Internet Connection
+                Error Voting: Check Internet Connection
               </h4>
             ) : (
               <h4 className="SingleArticle__h4">Votes: {votes}</h4>
             )}
 
-            <button onClick={() => updateVotes(-1)}>Down Vote</button>
+            {localStorage.getItem(article_id) ? (
+              <button disabled={true}>Already done!</button>
+            ) : (
+              <button onClick={() => updateVotes(-1)}>Down Vote</button>
+            )}
           </div>
           <h4 className="SingleArticle__h4">
             {pluraliseComments(articleData.comment_count)}
