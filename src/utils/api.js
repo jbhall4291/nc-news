@@ -31,8 +31,8 @@ const newsAPI = axios.create({
     // .catch(error)
   };
 
-  export const voteUpArticle = (article_id) => {
-    return newsAPI.patch(`/articles/${article_id}`, {inc_votes: 1}).then((res) => {
+  export const voteOnArticle = (article_id, body) => {
+    return newsAPI.patch(`/articles/${article_id}`, body).then((res) => {
       const response = res.data.updatedArticle;
       console.log(response);
       return response;
@@ -40,13 +40,4 @@ const newsAPI = axios.create({
     // .catch((error) => {
     //   console.log(error.message)
     // })
-  };
-
-  export const voteDownArticle = (article_id) => {
-    return newsAPI.patch(`/articles/${article_id}`, {inc_votes: -1}).then((res) => {
-      const response = res.data.updatedArticle;
-      console.log(response);
-      return response;
-    });
-    // .catch(error)
   };
