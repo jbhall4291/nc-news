@@ -26,7 +26,6 @@ const newsAPI = axios.create({
   export const getArticleComments = (article_id) => {
     return newsAPI.get(`/articles/${article_id}/comments`).then((res) => {
       const comments = res.data.comments;
-      console.log(comments)
       return comments;
     });
     // .catch(error)
