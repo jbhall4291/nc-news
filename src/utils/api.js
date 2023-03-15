@@ -37,9 +37,9 @@ const newsAPI = axios.create({
       console.log(response);
       return response;
     })
-    .catch((error) => {
-      console.log(error.message)
-    })
+    // .catch((error) => {
+    //   console.log(error.message)
+    // })
   };
 
   export const voteDownArticle = (article_id) => {

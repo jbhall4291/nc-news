@@ -18,8 +18,6 @@ const SingleArticle = () => {
   const [upVoted, setUpVoted] = useState(false);
   const [downVoted, setDownVoted] = useState(false);
 
-  console.log({ articleData });
-
   useEffect(() => {
     setIsLoading(true);
     getArticleById(article_id).then((article) => {
@@ -36,29 +34,74 @@ const SingleArticle = () => {
     }
   };
 
+
+// refactor voteUp & voteDown later
   const voteUp = () => {
-    if (!upVoted) {
-      setDownVoted(false);
+    if (!upVoted && !downVoted) {
       setUserVote(1);
       setUpVoted(true);
-      voteUpArticle(article_id);
+      voteUpArticle(article_id).catch(() => {
+        console.log("something went wrong with upvote!");
+        setUserVote(0);
+        setUpVoted(false);
+        setDownVoted(false);
+      });
+    } else if (!upVoted && downVoted) {
+      setUpVoted(true);
+      setDownVoted(false);
+      setUserVote(1);
+      
+      voteUpArticle(article_id).catch(() => {
+        setUserVote(-1);
+        setUpVoted(false);
+        setDownVoted(true);
+      });
+      voteUpArticle(article_id).catch(() => {
+        setUserVote(-1);
+        setUpVoted(false);
+        setDownVoted(true);
+      });
     } else if (upVoted) {
       setUserVote(0);
       setUpVoted(false);
-      voteDownArticle(article_id);
+      voteDownArticle(article_id).catch(() => {
+        setUserVote(1);
+        setUpVoted(true);
+        setDownVoted(false);
+      });
     }
   };
 
   const voteDown = () => {
-    if (!downVoted) {
-      setUpVoted(false);
+    if (!downVoted && !upVoted) {
       setUserVote(-1);
       setDownVoted(true);
-      voteDownArticle(article_id);
+      voteDownArticle(article_id).catch(() => {
+        setUserVote(0);
+        setDownVoted(false);
+        setUpVoted(false);
+      });
+    } else if (!downVoted && upVoted) {
+      setDownVoted(true);
+      setUpVoted(false);
+      setUserVote(-1);
+      voteDownArticle(article_id).catch(() => {
+        setUserVote(1);
+        setUpVoted(true);
+        setDownVoted(false);
+      });
+      voteDownArticle(article_id).catch(() => {
+        setUserVote(1);
+        setUpVoted(true);
+        setDownVoted(false);
+      });
     } else if (downVoted) {
       setUserVote(0);
       setDownVoted(false);
-      voteUpArticle(article_id);
+      voteUpArticle(article_id).catch(() => {
+        setUserVote(-1);
+        setDownVoted(true);
+      });
     }
   };
 
