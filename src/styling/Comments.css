@@ -1,0 +1,14 @@
+.Comments__div {
+    background-color: coral;
+    
+}
+
+.Comments__ul {
+    list-style: none;
+    padding-left: 0px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+

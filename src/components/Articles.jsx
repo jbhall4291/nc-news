@@ -5,6 +5,7 @@ import ArticleCard from "./ArticleCard";
 import "../styling/Articles.css";
 
 const Articles = () => {
+  
   const [isLoading, setIsLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 
@@ -21,7 +22,7 @@ const Articles = () => {
       {isLoading ? (
         <p>loading articles, please wait...</p>
       ) : (
-        <ul>
+        <ul className="Articles__ul">
           {articles.map((article) => {
             return (
               <ArticleCard

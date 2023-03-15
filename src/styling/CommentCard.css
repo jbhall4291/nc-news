@@ -1,0 +1,16 @@
+.CommentCard__div {
+    background-color: blueviolet;
+    margin: 5px;
+    width: 100vw;
+    padding: 10px;
+}
+
+@media (min-width: 870px) {
+    .CommentCard__div {
+        background-color: blueviolet;
+        margin: 5px;
+        width: 400px;    
+        padding: 10px;
+    }
+        
+  }

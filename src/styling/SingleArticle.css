@@ -9,14 +9,23 @@
 }
 
 .SingleArticle__h4 {
-    margin: 0px;
+    margin: 5px;
 }
 
 .SingleArticle__h5 {
-    margin: 0px;
+    margin: 5px;
     font-style: italic;
 }
 
 .SingleArticle__img {
 width: 100vw;
+margin: 20px 0;
 }
+
+
+@media (min-width: 870px) {
+    .SingleArticle__img {
+        width: 50vw;
+        }
+        
+  }
