@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getArticleById } from "../utils/api";
+import { getArticleById, voteUpArticle, voteDownArticle } from "../utils/api";
 import CommentAdder from "./CommentAdder";
 import Comments from "./Comments";
 import "../styling/SingleArticle.css";
@@ -13,6 +13,11 @@ const SingleArticle = () => {
 
   const [articleData, setArticleData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [userVote, setUserVote] = useState(0);
+
+  const [upVoted, setUpVoted] = useState(false);
+
+  console.log({ articleData });
 
   useEffect(() => {
     setIsLoading(true);
@@ -22,11 +27,6 @@ const SingleArticle = () => {
     });
   }, []);
 
-  //   const convertTimeAndDate = (created_at) => {
-  //     const date = new Date(created_at);
-  //     return `at ${date.toLocaleTimeString()} on ${date.toDateString()}`;
-  //   };
-
   const pluraliseComments = (comment_count) => {
     if (comment_count === 0) return `No comments`;
     else if (comment_count === 1) return `${comment_count} comment`;
@@ -34,6 +34,32 @@ const SingleArticle = () => {
       return `${comment_count} comments`;
     }
   };
+
+  const voteUp = () => {
+    // const voteValue = Number(e.target.value);
+    // console.log(voteValue);
+    // if (userVote === 0) {
+      if (!upVoted) {
+      setUserVote(1);
+      setUpVoted(true);
+      voteUpArticle(article_id);
+    } else {
+      setUserVote(0);
+      setUpVoted(false);
+      voteDownArticle(article_id);
+    }
+    // setArticleData({...articleData, votes: articleData.votes + userVote})
+  };
+
+  // const voteDown = () => {
+  //   // const voteValue = Number(e.target.value);
+  //   // console.log(voteValue);
+  //   setUserVote(-1)
+  //   // setArticleData({...articleData, votes: articleData.votes + userVote})
+  //   voteDownArticle(article_id);
+  // }
+
+  // console.log(userVote + " <<<< current userVote");
 
   return (
     <div>
@@ -55,7 +81,27 @@ const SingleArticle = () => {
             alt={articleData.title}
           ></img>
           <h4 className="SingleArticle__h4">{articleData.body}</h4>
-          <h4 className="SingleArticle__h4">{pluraliseComments(articleData.comment_count)}</h4>
+          <div>
+            <h4 className="SingleArticle__h4">
+              Votes: {articleData.votes + userVote}
+            </h4>
+
+            <button
+              className={
+                upVoted
+                  ? "SingleArticle__button--voted-up"
+                  : "SingleArticle__button--no-vote"
+              }
+              onClick={voteUp}
+            >
+              Up Vote
+            </button>
+
+            {/* <button onClick={voteDown}>Down Vote</button> */}
+          </div>
+          <h4 className="SingleArticle__h4">
+            {pluraliseComments(articleData.comment_count)}
+          </h4>
           <CommentAdder />
           <Comments article_id={article_id} />
         </section>
