@@ -30,7 +30,7 @@ margin: 20px 0;
         
   }
 
-.SingleArticle__button--no-vote {
+.SingleArticle__button--upvote-no-vote {
     width: 100px;
     height: 100px;
     font-size: 2rem;
@@ -38,10 +38,32 @@ margin: 20px 0;
     color: green;
 }
 
-.SingleArticle__button--voted-up {
+.SingleArticle__button--upvote-voted-up {
     width: 100px;
     height: 100px;
     font-size: 2rem;
     background-color: green;
     color: white;
+}
+
+.SingleArticle__button--downvote-no-vote {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    background-color: white;
+    color: red;
+}
+
+.SingleArticle__button--downvote-voted-down {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    background-color: red;
+    color: white;
+}
+
+.SingleArticle__button {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
 }

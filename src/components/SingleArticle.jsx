@@ -16,6 +16,7 @@ const SingleArticle = () => {
   const [userVote, setUserVote] = useState(0);
 
   const [upVoted, setUpVoted] = useState(false);
+  const [downVoted, setDownVoted] = useState(false);
 
   console.log({ articleData });
 
@@ -36,30 +37,30 @@ const SingleArticle = () => {
   };
 
   const voteUp = () => {
-    // const voteValue = Number(e.target.value);
-    // console.log(voteValue);
-    // if (userVote === 0) {
-      if (!upVoted) {
+    if (!upVoted) {
+      setDownVoted(false);
       setUserVote(1);
       setUpVoted(true);
       voteUpArticle(article_id);
-    } else {
+    } else if (upVoted) {
       setUserVote(0);
       setUpVoted(false);
       voteDownArticle(article_id);
     }
-    // setArticleData({...articleData, votes: articleData.votes + userVote})
   };
 
-  // const voteDown = () => {
-  //   // const voteValue = Number(e.target.value);
-  //   // console.log(voteValue);
-  //   setUserVote(-1)
-  //   // setArticleData({...articleData, votes: articleData.votes + userVote})
-  //   voteDownArticle(article_id);
-  // }
-
-  // console.log(userVote + " <<<< current userVote");
+  const voteDown = () => {
+    if (!downVoted) {
+      setUpVoted(false);
+      setUserVote(-1);
+      setDownVoted(true);
+      voteDownArticle(article_id);
+    } else if (downVoted) {
+      setUserVote(0);
+      setDownVoted(false);
+      voteUpArticle(article_id);
+    }
+  };
 
   return (
     <div>
@@ -82,22 +83,31 @@ const SingleArticle = () => {
           ></img>
           <h4 className="SingleArticle__h4">{articleData.body}</h4>
           <div>
-            <h4 className="SingleArticle__h4">
-              Votes: {articleData.votes + userVote}
-            </h4>
-
             <button
               className={
                 upVoted
-                  ? "SingleArticle__button--voted-up"
-                  : "SingleArticle__button--no-vote"
+                  ? "SingleArticle__button--upvote-voted-up"
+                  : "SingleArticle__button--upvote-no-vote"
               }
               onClick={voteUp}
             >
               Up Vote
             </button>
 
-            {/* <button onClick={voteDown}>Down Vote</button> */}
+            <h4 className="SingleArticle__h4">
+              Votes: {articleData.votes + userVote}
+            </h4>
+
+            <button
+              className={
+                downVoted
+                  ? "SingleArticle__button--downvote-voted-down"
+                  : "SingleArticle__button--downvote-no-vote"
+              }
+              onClick={voteDown}
+            >
+              Down Vote
+            </button>
           </div>
           <h4 className="SingleArticle__h4">
             {pluraliseComments(articleData.comment_count)}
