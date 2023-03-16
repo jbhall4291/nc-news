@@ -12,7 +12,7 @@ const Articles = () => {
 
   
   const {topic} = useParams();
-console.log(topic);
+
 
   useEffect(() => {
     setIsLoading(true);
