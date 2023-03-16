@@ -3,6 +3,7 @@ import "../styling/Comments.css";
 import { useState, useEffect } from "react";
 import { getArticleComments } from "../utils/api";
 import CommentCard from "./CommentCard";
+import CommentAdder from "./CommentAdder";
 
 const Comments = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,9 +26,12 @@ const Comments = () => {
         <p>loading comments, please wait...</p>
       ) :
       (
+        <>
+        <CommentAdder setComments={setComments} article_id={article_id}/>
         <ul className="Comments__ul">
           {comments.map((comment) => {
             return (
+              
               <CommentCard
                 key={comment.comment_id}
                 comment={comment}
@@ -38,7 +42,7 @@ const Comments = () => {
         </ul>
 
 
-
+</>
 
 
       )}

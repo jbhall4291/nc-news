@@ -3,16 +3,20 @@ import { useState } from "react";
 import "../styling/CommentAdder.css";
 import { postComment } from "../utils/api";
 
-const CommentAdder = ({ article_id }) => {
+const CommentAdder = ({ article_id, setComments }) => {
   const [commentText, setCommentText] = useState("");
-  const [finalisedComment, setFinalisedComment] = useState("");
+  // const [finalisedComment, setFinalisedComment] = useState("");
   
 
 const postAComment = () => {
-  postComment(article_id, commentText);
-  // postComment(article_id, finalisedComment);
-  setFinalisedComment( commentText );
-  console.log(finalisedComment)
+  postComment(article_id, commentText).then((addedComment) => {
+setComments((currComments) => {
+ return [addedComment, ...currComments]
+})
+  })
+  
+  // setFinalisedComment( commentText );
+  
 
   // need a loading thing going on,
   // after which the new comment should appear
