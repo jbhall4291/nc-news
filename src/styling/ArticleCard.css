@@ -1,11 +1,8 @@
-/* li {
-    list-style: none;
-    padding-left: 0;
-} */
+
 
 .ArticleCard__article {
     width: 300px;
-    height: 300px;
+    height: 350px;
     background-color : lightskyblue;
 }
 
@@ -13,3 +10,11 @@
     width: 200px ;  
     height: 150px;
 }
+
+.ArticleCard__ThumbsUp--not-active {
+color: lightgrey;    
+}
+
+.ArticleCard__ThumbsUp--active {
+    color: green;    
+    }
