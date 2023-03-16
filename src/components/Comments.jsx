@@ -8,8 +8,7 @@ import CommentAdder from "./CommentAdder";
 const Comments = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
-  // const [isCommentError, setIsCommentError] = useState(false);
-
+  
   const { article_id } = useParams();
 
   useEffect(() => {
