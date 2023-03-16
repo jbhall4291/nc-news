@@ -4,7 +4,7 @@ const newsAPI = axios.create({
   baseURL: "https://backend-project-nc-news-49l4.onrender.com/api",
 });
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, selectedSortBy, selectedOrder) => {
   let path = "/articles";
   // if (topic) {
   //   path += `/?topic=${topic}`
@@ -13,6 +13,8 @@ export const getArticles = (topic) => {
     .get(path, {
       params: {
         topic: topic,
+        sort_by: selectedSortBy,
+        order: selectedOrder
       },
     })
     .then((res) => {

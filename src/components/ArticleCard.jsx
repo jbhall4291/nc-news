@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styling/ArticleCard.css";
 import { ThumbsUp, ThumbsDown } from "phosphor-react";
+import { convertTimeAndDate } from "../utils/functions";
 
 const ArticleCard = ({ article }) => {
   return (
@@ -13,6 +14,8 @@ const ArticleCard = ({ article }) => {
         <article className="ArticleCard__article">
 
           <p>{article.title} </p>
+
+Posted {convertTimeAndDate(article.created_at)}
 
           <img
             className="ArticleCard__img"
