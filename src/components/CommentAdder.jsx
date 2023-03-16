@@ -5,37 +5,56 @@ import { postComment } from "../utils/api";
 
 const CommentAdder = ({ article_id, setComments }) => {
   const [commentText, setCommentText] = useState("");
-  // const [finalisedComment, setFinalisedComment] = useState("");
-  
 
-const postAComment = () => {
-  postComment(article_id, commentText).then((addedComment) => {
-setComments((currComments) => {
- return [addedComment, ...currComments]
-})
-  })
-  
-  // setFinalisedComment( commentText );
-  
+  const [
+    lastSuccessfullySubmittedCommentText,
+    setLastSuccessfullySubmittedCommentText,
+  ] = useState("");
 
-  // need a loading thing going on,
-  // after which the new comment should appear
-  // in the Comments component underneath. and
-  // a success message (or similar)
-  // also some error handling (blank text box, same comment twice etc)
+  const [isSubmissionFeedback, setSubmissionFeedback] = useState(false);
+  const [submissionFeedbackMessage, setSubmissionFeedbackMessage] =
+    useState("");
 
-}
+  const postAComment = () => {
+    postComment(article_id, commentText)
+      .then((addedComment) => {
+        setLastSuccessfullySubmittedCommentText(commentText);
+        setComments((currComments) => {
+          return [addedComment, ...currComments];
+        });
+        setSubmissionFeedbackMessage("comment posted, thank you!");
+        setCommentText("")
+      })
+      .catch((error) => {
+        setSubmissionFeedback(true);
+        setSubmissionFeedbackMessage(`comment not posted, submit again! (${error.message})`);
+      });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    postAComment();
+    setSubmissionFeedback(false);
+    setSubmissionFeedbackMessage("");
+    if (commentText === "") {
+      setSubmissionFeedback(true);
+      setSubmissionFeedbackMessage("comment is empty!");
+    } else if (commentText === lastSuccessfullySubmittedCommentText) {
+      setSubmissionFeedback(true);
+      setSubmissionFeedbackMessage("comment already posted!");
+    } else {
+      setSubmissionFeedback(true);
+      setSubmissionFeedbackMessage("adding comment...");
+      postAComment();
+    }
   };
-
-  
 
   return (
     <section className="CommentAdder__section">
       <h2>add a comment</h2>
+
+      <p className={isSubmissionFeedback ? "visible" : "hidden"}>
+        {submissionFeedbackMessage}
+      </p>
 
       <form onSubmit={handleSubmit}>
         <label className="formLabel" htmlFor="commentText">

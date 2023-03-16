@@ -8,9 +8,9 @@ import CommentAdder from "./CommentAdder";
 const Comments = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
+  // const [isCommentError, setIsCommentError] = useState(false);
 
   const { article_id } = useParams();
-
 
   useEffect(() => {
     setIsLoading(true);
@@ -22,29 +22,23 @@ const Comments = () => {
 
   return (
     <div className="Comments__div">
-    {isLoading ? (
+      {isLoading ? (
         <p>loading comments, please wait...</p>
-      ) :
-      (
+      ) : (
         <>
-        <CommentAdder setComments={setComments} article_id={article_id}/>
-        <ul className="Comments__ul">
-          {comments.map((comment) => {
-            return (
-              
-              <CommentCard
-                key={comment.comment_id}
-                comment={comment}
-                setComments={setComments}
-              />
-            );
-          })}
-        </ul>
-
-
-</>
-
-
+          <CommentAdder setComments={setComments} article_id={article_id}/>
+          <ul className="Comments__ul">
+            {comments.map((comment) => {
+              return (
+                <CommentCard
+                  key={comment.comment_id}
+                  comment={comment}
+                  setComments={setComments}
+                />
+              );
+            })}
+          </ul>
+        </>
       )}
     </div>
   );
