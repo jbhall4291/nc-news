@@ -10,7 +10,7 @@ const newsAPI = axios.create({
       const articles = res.data.articles;
       return articles;
     });
-    // .catch(error)
+    
   };
 
 
@@ -19,15 +19,23 @@ const newsAPI = axios.create({
       const article = res.data.article;
       return article;
     });
-    // .catch(error)
+    
   };
 
 
   export const getArticleComments = (article_id) => {
     return newsAPI.get(`/articles/${article_id}/comments`).then((res) => {
       const comments = res.data.comments;
-      console.log(comments)
       return comments;
     });
-    // .catch(error)
+    
+  };
+
+  export const voteOnArticle = (article_id, body) => {
+    return newsAPI.patch(`/articles/${article_id}`, body).then((res) => {
+      const response = res.data.updatedArticle;
+      console.log(response);
+      return response;
+    })
+    
   };
