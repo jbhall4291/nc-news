@@ -85,7 +85,7 @@ const SingleArticle = () => {
               <button
                 className="SingleArticle__button--upvote-voted-up"
                 onClick={() => updateVotes(-1)}
-                // disabled={true}
+                
               >
                 <ThumbsUp size={32} />
                 <span>Voted!</span>
@@ -108,21 +108,7 @@ const SingleArticle = () => {
               <h4 className="SingleArticle__h4">Votes: {votes}</h4>
             )}
 
-            {/* {localStorage.getItem(article_id) ? (
-              <button
-                className="SingleArticle__button--downvote-voted-down"
-                disabled={true}
-              >
-                <ThumbsDown size={32} />
-              </button>
-            ) : (
-              <button
-                className="SingleArticle__button--downvote-no-vote"
-                onClick={() => updateVotes(-1)}
-              >
-                <ThumbsDown size={32} />
-              </button>
-            )} */}
+           
           </div>
 
           <h4 className="SingleArticle__h4">
