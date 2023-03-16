@@ -5,8 +5,13 @@ const newsAPI = axios.create({
   });
   
 
-  export const getArticles = () => {
-    return newsAPI.get("/articles").then((res) => {
+  export const getArticles = (topic) => {
+    let path = '/articles';
+    if (topic) {
+      path += `/?topic=${topic}`
+
+    }
+    return newsAPI.get(path).then((res) => {
       const articles = res.data.articles;
       return articles;
     });
