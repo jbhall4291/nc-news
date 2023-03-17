@@ -5,6 +5,7 @@
     align-items: center;
     gap: 1.5rem;
     padding: .1rem 1rem 0.8rem 1rem;   
+    border-radius: 0 0 10px 10px;
 }
 
 @media (min-width: 820px) {
