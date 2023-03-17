@@ -34,8 +34,22 @@ const newsAPI = axios.create({
   export const voteOnArticle = (article_id, body) => {
     return newsAPI.patch(`/articles/${article_id}`, body).then((res) => {
       const response = res.data.updatedArticle;
-      console.log(response);
       return response;
     })
-    
+  }
+
+
+export const postComment = (article_id, finalisedComment) => {
+  const commentObject = {
+    //need to hardcode an existing user in db
+    username: "cooljmessy",
+    body: finalisedComment,
   };
+  return newsAPI
+    .post(`/articles/${article_id}/comments`, commentObject)
+    .then((res) => {
+      const commentInserted = res.data.commentInserted;
+      return commentInserted;
+    });
+};
+

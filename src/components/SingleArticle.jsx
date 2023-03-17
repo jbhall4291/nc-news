@@ -114,7 +114,7 @@ const SingleArticle = () => {
           <h4 className="SingleArticle__h4">
             {pluraliseComments(articleData.comment_count)}
           </h4>
-          <CommentAdder />
+
           <Comments article_id={article_id} />
         </section>
       )}
