@@ -1,15 +1,46 @@
 .navbar {
-    background-color: green;
+    background-color: #252422;
     display: flex;
     justify-content: space-around;
-    align-items: stretch;
-    align-items: baseline;
-    gap: 2rem;
-    padding: .5rem 1rem;
-    
+    align-items: center;
+    gap: 1.5rem;
+    padding: .1rem 1rem 0.8rem 1rem;   
 }
 
-.navbar__h2 {
-    margin: 0px;
-    font-size: 1rem;
+@media (min-width: 820px) {
+
+
 }
+
+.Navbar__Link {
+    background-color: #403D39;
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 10px;
+    width: 80px;
+    margin: 0px;
+    font-size: 0.8rem;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 400;
+    color: #FFFCF2;
+}
+
+@media (min-width: 820px) {
+    .Navbar__Link {
+        
+        padding: 5px 8px;
+        
+        width: 150px;
+        margin: 0px;
+        font-size: 1.2rem;
+        font-family: 'Libre Franklin', sans-serif;
+        font-weight: 400;
+        color: #FFFCF2;
+    }
+
+}
+
+
+/* font-family: 'Imprima', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Loved by the King', cursive; */

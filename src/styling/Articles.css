@@ -4,5 +4,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: #FFFCF2;
     
+}
+
+.Articles__section {
+    background-color: #FFFCF2;
 }

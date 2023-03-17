@@ -24,7 +24,7 @@ const Articles = () => {
   
 
   return (
-    <div>
+    <section className="Articles__section">
       <select
         value={selectedSortBy}
         onChange={(e) => setSelectedSortBy(e.target.value)}
@@ -58,7 +58,7 @@ const Articles = () => {
           })}
         </ul>
       )}
-    </div>
+    </section>
   );
 };
 

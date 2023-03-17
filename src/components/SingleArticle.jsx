@@ -88,7 +88,7 @@ const SingleArticle = () => {
                 
               >
                 <ThumbsUp size={32} />
-                <span>Voted!</span>
+                
               </button>
             ) : (
               <button
