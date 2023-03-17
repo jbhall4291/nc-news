@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styling/ArticleCard.css";
-import { ThumbsUp, ThumbsDown } from "phosphor-react";
+import { ThumbsUp} from "phosphor-react";
 import { convertTimeAndDate } from "../utils/functions";
 
 const ArticleCard = ({ article }) => {

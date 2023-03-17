@@ -17,7 +17,7 @@ const Comments = () => {
       setComments(commentsData);
       setIsLoading(false);
     });
-  }, []);
+  }, [article_id]);
 
   return (
     <div className="Comments__div">
