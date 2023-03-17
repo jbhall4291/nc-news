@@ -15,7 +15,10 @@ const CommentAdder = ({ article_id, setComments }) => {
   const [submissionFeedbackMessage, setSubmissionFeedbackMessage] =
     useState("");
 
+  const [isPosting, setIsPosting] = useState(false);
+
   const postAComment = () => {
+    setIsPosting(true);
     postComment(article_id, commentText)
       .then((addedComment) => {
         setLastSuccessfullySubmittedCommentText(commentText);
@@ -23,16 +26,20 @@ const CommentAdder = ({ article_id, setComments }) => {
           return [addedComment, ...currComments];
         });
         setSubmissionFeedbackMessage("comment posted, thank you!");
-        setCommentText("")
+        setCommentText("");
+        setIsPosting(false);
       })
       .catch((error) => {
         setSubmissionFeedback(true);
-        setSubmissionFeedbackMessage(`comment not posted, submit again! (${error.message})`);
+        setSubmissionFeedbackMessage(
+          `comment not posted, submit again! (${error.message})`
+        );
       });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     setSubmissionFeedback(false);
     setSubmissionFeedbackMessage("");
     if (commentText === "") {
@@ -44,6 +51,7 @@ const CommentAdder = ({ article_id, setComments }) => {
     } else {
       setSubmissionFeedback(true);
       setSubmissionFeedbackMessage("adding comment...");
+
       postAComment();
     }
   };
@@ -68,7 +76,12 @@ const CommentAdder = ({ article_id, setComments }) => {
           onChange={(event) => setCommentText(event.target.value)}
         />
 
-        <button type="submit" id="button" className="CommentAdder__button">
+        <button
+          type="submit"
+          id="button"
+          className="CommentAdder__button"
+          disabled={isPosting}
+        >
           Submit
         </button>
       </form>
