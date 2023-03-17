@@ -12,7 +12,7 @@ const ArticleCard = ({ article }) => {
         to={`/articles/${article.article_id}`}
       >
         <article className="ArticleCard__article">
-          <p className="ArticleCard__p">{article.title} </p>
+          <p className="ArticleCard__p--title">{article.title} </p>
           <p className="ArticleCard__p--posted-at">Posted {convertTimeAndDate(article.created_at)}</p>
           <img
             className="ArticleCard__img"
