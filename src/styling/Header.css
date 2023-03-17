@@ -1,8 +1,15 @@
-.header {
-
-background-color: red;   
+.header__h1 {
+background-color: #252422;
+color: #EB5E28;
+text-shadow: 0px 2px #FFFCF2;
+font-size: 2.8rem;
+margin: 0px;
+font-family: 'Oleo Script Swash Caps', cursive;
 }
 
+@media (min-width: 820px) {
 .header__h1 {
-    margin: 0px;
+font-size: 5rem;
+text-shadow: 0px 3px #FFFCF2;
+}
 }

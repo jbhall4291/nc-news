@@ -1,9 +1,28 @@
+.ArticleCard__Link {
+
+    text-decoration: none;
+
+}
+
+.ArticleCard__p--posted-at {
+    margin: 10px 10px 20px 10px;
+    
+    font-style: italic;
+}
+
+.ArticleCard__p--title {
+    height: 35px;
+}
 
 
 .ArticleCard__article {
     width: 300px;
-    height: 350px;
-    background-color : lightskyblue;
+    height: 400px;
+    background-color : #403D39;
+    border-radius: 10px;
+    color: #FFFCF2;
+    padding: 12px;
+    margin: 5px;
 }
 
 .ArticleCard__img {
@@ -18,3 +37,12 @@ color: lightgrey;
 .ArticleCard__ThumbsUp--active {
     color: green;    
     }
+
+.ArticleCard__p {
+ text-decoration: none;   
+}
+
+
+/* font-family: 'Imprima', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Loved by the King', cursive; */

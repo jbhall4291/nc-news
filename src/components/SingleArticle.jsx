@@ -85,10 +85,8 @@ const SingleArticle = () => {
               <button
                 className="SingleArticle__button--upvote-voted-up"
                 onClick={() => updateVotes(-1)}
-                
               >
                 <ThumbsUp size={32} />
-                <span>Voted!</span>
               </button>
             ) : (
               <button
@@ -96,7 +94,6 @@ const SingleArticle = () => {
                 onClick={() => updateVotes(1)}
               >
                 <ThumbsUp size={32} />
-                
               </button>
             )}
 
@@ -107,8 +104,6 @@ const SingleArticle = () => {
             ) : (
               <h4 className="SingleArticle__h4">Votes: {votes}</h4>
             )}
-
-           
           </div>
 
           <h4 className="SingleArticle__h4">

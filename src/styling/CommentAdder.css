@@ -1,5 +1,12 @@
 .CommentAdder__section {
-    background-color: chartreuse;
+    background-color: #CCC5B9;
+    
+    
+    
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    
 }
 
 .hidden {
@@ -11,6 +18,7 @@
 .visible {
     visibility: visible;
     height: 30px;
-    background-color: brown;
+    background-color: #eb5e28;
+
 }
 

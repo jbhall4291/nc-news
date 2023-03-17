@@ -1,16 +1,22 @@
 .CommentCard__div {
-    background-color: blueviolet;
+    background-color: #403D39;
     margin: 5px;
     width: 100vw;
     padding: 10px;
+    color: #fffcf2;
+    border-radius: 10px;
+}
+
+.CommentCard__p--posted {
+    font-style: italic;
 }
 
 @media (min-width: 870px) {
     .CommentCard__div {
-        background-color: blueviolet;
-        margin: 5px;
+        
+        
         width: 400px;    
-        padding: 10px;
+        
     }
         
   }
