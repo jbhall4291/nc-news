@@ -9,8 +9,6 @@
 }
 
 @media (min-width: 820px) {
-
-
 }
 
 .Navbar__Link {
@@ -28,9 +26,7 @@
 
 @media (min-width: 820px) {
     .Navbar__Link {
-        
         padding: 5px 8px;
-        
         width: 150px;
         margin: 0px;
         font-size: 1.2rem;
@@ -40,6 +36,17 @@
     }
 
 }
+
+.Navbar__Link:hover {
+    background-color: #EB5E28;
+    
+}
+
+.Navbar__Link--active {
+    background-color: #EB5E28;
+   
+}
+
 
 
 /* font-family: 'Imprima', sans-serif;
