@@ -12,3 +12,18 @@
     background-color: #FFFCF2;
     border-radius: 10px;
 }
+
+.section__loading {
+    margin:auto;
+    
+    width: 80vw;
+    color: #FFFCF2;
+}
+
+
+.section__error {
+    margin:auto;
+    
+    width: 80vw;
+    color: red;
+}

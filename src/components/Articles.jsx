@@ -28,7 +28,18 @@ const Articles = () => {
       });
   }, [topic, selectedSortBy, selectedOrder]);
 
-  if (err) return <p>{err}</p>;
+  if (isLoading)
+    return (
+      <section className="section__loading">
+        <p>loading articles, please wait...</p>
+      </section>
+    );
+  if (err)
+    return (
+      <section className="section__error">
+        <p>no articles found</p>
+      </section>
+    );
 
   return (
     <section className="Articles__section">
@@ -40,7 +51,6 @@ const Articles = () => {
         <option value="comment_count">Comments</option>
         <option value="votes">Votes</option>
       </select>
-
       <select
         value={selectedOrder}
         onChange={(e) => setSelectedOrder(e.target.value)}
@@ -48,21 +58,17 @@ const Articles = () => {
         <option value="desc">Descending</option>
         <option value="asc">Ascending</option>
       </select>
-
-      {isLoading ? (
-        <p>loading articles, please wait...</p>
-      ) : (
-        <ul className="Articles__ul">
-          {articles.map((article) => {
-            return (
-              <ArticleCard
-                key={article.article_id}
-                article={article}
-                setArticles={setArticles}
-              />
-            );
-          })}
-        </ul>
+      <ul className="Articles__ul">
+        {articles.map((article) => {
+          return (
+            <ArticleCard
+              key={article.article_id}
+              article={article}
+              setArticles={setArticles}
+            />
+          );
+        })}
+      </ul>
       )}
     </section>
   );
