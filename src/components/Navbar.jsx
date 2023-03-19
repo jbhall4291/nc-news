@@ -20,7 +20,7 @@ const Navbar = () => {
             : "Navbar__Link"
         }`}
       >
-        <b>All Topics</b>
+        All Topics
       </Link>
 
       <Link

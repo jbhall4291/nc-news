@@ -39,12 +39,13 @@
 
 .Navbar__Link:hover {
     background-color: #EB5E28;
+    color: #252422;
     
 }
 
 .Navbar__Link--active {
     background-color: #EB5E28;
-   
+    color: #252422;
 }
 
 
