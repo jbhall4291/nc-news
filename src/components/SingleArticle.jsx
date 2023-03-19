@@ -13,17 +13,22 @@ const SingleArticle = () => {
 
   const [articleData, setArticleData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(null);
 
   const [votes, setVotes] = useState(0);
   const [isVotingError, setIsVotingError] = useState(false);
 
   useEffect(() => {
+    setErr(false);
     setIsLoading(true);
     getArticleById(article_id).then((article) => {
       setArticleData(article);
       setVotes(article.votes);
       setIsLoading(false);
-    });
+    }).catch((err) => {
+      setErr(err.response.data.msg);
+      setIsLoading(false);
+    })
   }, [article_id]);
 
   const pluraliseComments = (comment_count) => {
@@ -58,6 +63,8 @@ const SingleArticle = () => {
       });
     }
   };
+
+  if (err) return <p>Article Not Found!</p>;
 
   return (
     <div>
