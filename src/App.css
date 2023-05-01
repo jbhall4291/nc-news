@@ -6,4 +6,14 @@ body {
   background-color: #252422;
 }
 
-  @import url('https://fonts.googleapis.com/css2?family=Imprima&family=Libre+Franklin:wght@400;800&family=Oleo+Script+Swash+Caps:wght@700&family=Pacifico&family=Rampart+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Shade&family=Darumadrop+One&family=Londrina+Shadow&family=Monofett&family=Moo+Lah+Lah&family=Nabla&display=swap");
+
+/* font-family: 'Black Han Sans', sans-serif;
+font-family: 'Bungee Shade', cursive;
+font-family: 'Darumadrop One', cursive;
+font-family: 'Londrina Shadow', cursive;
+font-family: 'Monofett', cursive;
+font-family: 'Moo Lah Lah', cursive;
+font-family: 'Nabla', cursive; */
+
+@import url("https://fonts.googleapis.com/css2?family=Imprima&family=Libre+Franklin:wght@400;800&family=Oleo+Script+Swash+Caps:wght@700&family=Pacifico&family=Rampart+One&display=swap");
