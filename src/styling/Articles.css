@@ -1,29 +1,27 @@
 .Articles__ul {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    background-color: #FFFCF2;
-    
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: var(--primary-color);;
 }
 
 .Articles__section {
-    background-color: #FFFCF2;
-    border-radius: 10px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
 }
 
 .section__loading {
-    margin:auto;
-    
-    width: 80vw;
-    color: #FFFCF2;
+  margin: auto;
+
+  width: 80vw;
+  color: var(--neutral-color);
 }
 
-
 .section__error {
-    margin:auto;
-    
-    width: 80vw;
-    color: red;
+  margin: auto;
+
+  width: 80vw;
+  color: red;
 }

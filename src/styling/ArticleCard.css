@@ -18,9 +18,9 @@
 .ArticleCard__article {
     width: 300px;
     height: 400px;
-    background-color : #403D39;
+    background-color: var(--neutral-color);;
     border-radius: 10px;
-    color: #FFFCF2;
+    color: var(--secondary-color);;
     padding: 12px;
     margin: 5px;
 }
