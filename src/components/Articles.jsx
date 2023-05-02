@@ -69,7 +69,6 @@ const Articles = () => {
           );
         })}
       </ul>
-      )}
     </section>
   );
 };
