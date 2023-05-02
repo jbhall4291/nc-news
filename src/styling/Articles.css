@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: var(--neutral-color);
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 .Articles__section {

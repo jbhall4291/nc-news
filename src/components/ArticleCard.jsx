@@ -19,10 +19,11 @@ const ArticleCard = ({ article }) => {
               <img src={article.article_img_url} alt={article.title}></img>
             </div>
             <div class="title_area">
-              {" "}
-              <p>{article.title} </p>
               <p>
-                <em>by {article.author} </em>
+                <b>{article.title}</b><br></br>
+                {/* <em>{article.author} </em> */}
+              </p>
+              <p>
               </p>
             </div>
             <div class="details_area">

@@ -3,16 +3,17 @@
 }
 
 .ArticleCard__article {
-  width: 98vw;
+  margin: 0 5px 5px 5px;
   /* background-color: var(--neutral-color); */
   color: var(--secondary-color);
   border-radius: 0.5rem;
   background-color: lightgreen;
+ 
 }
 
 @media (min-width: 600px) {
   .ArticleCard__article {
-    width: 24vw;
+    width: 100%;
   }
 }
 .container {
@@ -70,7 +71,17 @@
 .title_area {
   grid-area: title_area;
   /* text-align: left; */
-  margin: 10px;
+  margin: 5px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+
+.title_area p {
+ /* margin: 0; */
 }
 
 .details_area {
