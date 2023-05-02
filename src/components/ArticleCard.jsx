@@ -19,38 +19,38 @@ const ArticleCard = ({ article }) => {
               <img src={article.article_img_url} alt={article.title}></img>
             </div>
             <div class="title_area">
+              {" "}
               <p>{article.title} </p>
-              <p>by {article.author} </p>
+              <p>
+                <em>by {article.author} </em>
+              </p>
             </div>
             <div class="details_area">
-              <p>
-                <i class="fa-solid fa-clock"></i>{" "}
-                <span className="margin-on-mobile">{convertTimeAndDate(article.created_at)}</span>
-              </p>
-
-              <p>
-                <i class="fa-solid fa-thumbs-up"></i> {article.votes}{" "}
-                <span className="hide-on-mobile">votes</span>
-              </p>
-              <p>
-                <i class="fa-solid fa-comment"></i> {article.comment_count}{" "}
-                <span className="hide-on-mobile">comments</span>
-                
-              </p>
+              <div class="time_area">
+                {" "}
+                <p>
+                  <i class="fa-solid fa-clock"></i>{" "}
+                  <span className="margin-on-mobile">
+                    {convertTimeAndDate(article.created_at)}
+                  </span>
+                </p>
+              </div>
+              <div class="votes_area">
+                <p>
+                  <i class="fa-solid fa-thumbs-up"></i> {article.votes}{" "}
+                  <span className="hide-on-mobile">votes</span>
+                </p>
+              </div>
+              <div class="comments_area">
+                <p>
+                  <i class="fa-solid fa-comment"></i> {article.comment_count}{" "}
+                  <span className="hide-on-mobile">comments</span>
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* <div class="container">
-            <div class="image_area">
-              <img src={article.article_img_url} alt={article.title}></img>
-            </div>
-            <div class="title">
-             
-            </div>
-            <div>
-              <p>Posted {convertTimeAndDate(article.created_at)}</p>
-
-              <p>Votes: {article.votes}</p>
+          {/* used to check if this user has voted for this article, on this device
               {localStorage.getItem(article.article_id) ? (
                 <ThumbsUp className="ArticleCard__ThumbsUp--active" size={32} />
               ) : (
@@ -58,25 +58,9 @@ const ArticleCard = ({ article }) => {
                   className="ArticleCard__ThumbsUp--not-active"
                   size={32}
                 />
-              )}
-              <p>Comments: {article.comment_count}</p>
-            </div>
-          </div> */}
 
-          {/* <p className="ArticleCard__p--title">{article.title} </p>
-          <p className="ArticleCard__p--posted-at">Posted {convertTimeAndDate(article.created_at)}</p>
-          <img
-            className="ArticleCard__img"
-            src={article.article_img_url}
-            alt={article.title}
-          ></img>
-          <p>Votes: {article.votes}</p>
-          {localStorage.getItem(article.article_id) ? (
-            <ThumbsUp className="ArticleCard__ThumbsUp--active" size={32} />
-          ) : (
-            <ThumbsUp className="ArticleCard__ThumbsUp--not-active" size={32} />
-          )}
-          <p>Comments: {article.comment_count}</p> */}
+
+              )} */}
         </article>
       </Link>
     </li>
