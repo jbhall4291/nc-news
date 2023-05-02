@@ -20,11 +20,11 @@ const ArticleCard = ({ article }) => {
             </div>
             <div class="title_area">
               <p>
-                <b>{article.title}</b><br></br>
+                <b>{article.title}</b>
+                <br></br>
                 {/* <em>{article.author} </em> */}
               </p>
-              <p>
-              </p>
+              <p></p>
             </div>
             <div class="details_area">
               <div class="time_area">
@@ -61,7 +61,7 @@ const ArticleCard = ({ article }) => {
                 />
 
 
-              )} */}
+               */}
         </article>
       </Link>
     </li>
