@@ -4,11 +4,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: var(--primary-color);;
+  background-color: var(--neutral-color);
+  gap: 10px;
 }
 
 .Articles__section {
-  background-color: var(--primary-color);
+  background-color: var(--neutral-color);
   border-radius: 10px;
 }
 
