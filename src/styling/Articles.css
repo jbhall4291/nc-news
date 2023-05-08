@@ -36,5 +36,6 @@ select {
   cursor: pointer;
   user-select: none;
   margin-left: 10px;
+  color: var(--black);
 }
 
