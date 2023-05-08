@@ -20,6 +20,8 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
+  /* border: black;
+  border-style: solid; */
   /* box-shadow: inset 0 0 5px var(--black); */
   
 }

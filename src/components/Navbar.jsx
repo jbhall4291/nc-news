@@ -11,6 +11,7 @@ const Navbar = () => {
 
   return (
     <section className="navbar">
+    <h1 className="header__h1--navbar">NewsBuzz</h1>
       <Link
         to="/"
         onClick={() => handleTopicClick("allTopics")}
