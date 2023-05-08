@@ -1,22 +1,20 @@
 .CommentCard__div {
-    background-color: #403D39;
-    margin: 5px;
-    width: 100vw;
-    padding: 10px;
-    color: #fffcf2;
-    border-radius: 10px;
+  background-color: var(--bright);
+  margin: 5px;
+  width: 100vw;
+  padding: 10px;
+  color: #202020;
+  border-radius: 0.5rem;
+  border: black;
+  border-style: solid;
 }
 
 .CommentCard__p--posted {
-    font-style: italic;
+  font-style: italic;
 }
 
 @media (min-width: 870px) {
-    .CommentCard__div {
-        
-        
-        width: 400px;    
-        
-    }
-        
+  .CommentCard__div {
+    width: 400px;
   }
+}

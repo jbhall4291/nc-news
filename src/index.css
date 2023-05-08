@@ -16,9 +16,9 @@ code {
 }
 
 :root {
-  --primary-color: #77dd77;
-  --secondary-color: darkgreen;
-  --neutral-color: white;
+  --black: #202020;
+  --bright: #FFD100;
+  --neutral: #FFE15C;
 }
 
 

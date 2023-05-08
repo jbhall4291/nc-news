@@ -22,7 +22,7 @@ const ArticleCard = ({ article }) => {
               <p>
                 <b>{article.title}</b>
                 <br></br>
-                {/* <em>{article.author} </em> */}
+                <em>by {article.author} </em>
               </p>
               <p></p>
             </div>

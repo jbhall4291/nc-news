@@ -1,27 +1,38 @@
 .navbar {
-  background-color: var(--neutral-color);
+  background-color: #ffe15c;
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 1.5rem;
   padding: 0 1rem 0.8rem 1rem;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 0.5rem 0.5rem;
+
+  
+
+
+
+
+
+
+
 }
 
 @media (min-width: 820px) {
 }
 
 .Navbar__Link {
-  background-color: var(--secondary-color);
+  background-color: var(--bright);
+  color: var(--primary-color);
   text-decoration: none;
   padding: 5px 8px;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   width: 80px;
   margin: 0px;
   font-size: 0.8rem;
   font-family: "Libre Franklin", sans-serif;
   font-weight: 400;
-  color: var(--neutral-color);
+  border: var(--black);
+  border-style: solid;
 }
 
 @media (min-width: 820px) {
@@ -32,18 +43,17 @@
     font-size: 1.2rem;
     font-family: "Libre Franklin", sans-serif;
     font-weight: 400;
-    color: var(--neutral-color);
   }
 }
 
 .Navbar__Link:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: #202020;
+  color: var(--neutral);
 }
 
 .Navbar__Link--active {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: #202020;
+  color: var(--neutral);
 }
 
 /* font-family: 'Imprima', sans-serif;

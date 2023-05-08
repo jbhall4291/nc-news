@@ -4,20 +4,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: var(--neutral-color);
-  /* gap: 10px; */
+  background-color: var(--neutral);
+  gap: 20px;
 }
 
 .Articles__section {
-  background-color: var(--neutral-color);
-  border-radius: 10px;
+  background-color: var(--neutral);
+  border-radius: 0.5rem;
 }
 
 .section__loading {
   margin: auto;
 
   width: 80vw;
-  color: var(--neutral-color);
+  color: var(--black);
 }
 
 .section__error {

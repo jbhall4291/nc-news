@@ -1,6 +1,6 @@
 .Comments__div {
-    background-color: #FFFCF2;
-    
+    background-color: var(--neutral);
+   
 }
 
 .Comments__ul {
@@ -10,5 +10,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    
 }
 

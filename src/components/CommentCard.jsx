@@ -7,7 +7,7 @@ const CommentCard = ({comment}) => {
     return (
         <div className="CommentCard__div">
             <Quotes size={20} mirrored={true}/>
-            {comment.body}
+            <b>{comment.body}</b>
             <Quotes size={20}/>
             <p>Author: {comment.author}</p>
             <p>Votes: {comment.votes}</p>
