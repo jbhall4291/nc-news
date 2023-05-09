@@ -1,24 +1,42 @@
+
+
 .ArticleCard__Link {
   text-decoration: none;
   
 }
 
 .ArticleCard__article {
-  margin: 0 5px 5px 5px;
+  
   /* background-color: var(--neutral); */
   color: #202020;
   border-radius: 0.5rem;
   background-color: var(--bright);
-  
   border-style: solid;
   overflow: hidden;
+  width: 96vw
   
 }
 
 @media (min-width: 600px) {
   .ArticleCard__article {
     /* width: 100%; */
-    width: 420px;
+    width: 45vw;
+    
+  }
+}
+@media (min-width: 1024px) {
+  .ArticleCard__article {
+    /* width: 100%; */
+  width: 30vw;
+    
+    
+  }
+}
+
+@media (min-width: 1440px) {
+  .ArticleCard__article {
+    /* width: 100%; */
+  width: 22vw;
     
     
   }
