@@ -68,6 +68,7 @@
     /* border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     border-bottom-left-radius: 0; */
+    height: 250px;
   }
 }
 
@@ -118,6 +119,13 @@
   grid-auto-flow: row;
   grid-template-areas: "time_area votes_area comments_area";
   grid-area: details_area;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 1280px) {
+  .details_area {
+    font-size: 1rem;
+  }
 }
 
 /* viewports GREATER than 600px */
