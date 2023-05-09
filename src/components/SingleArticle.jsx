@@ -105,7 +105,6 @@ const SingleArticle = () => {
                   ) : (
                     <span>{votes} votes</span>
                   )}
-                  
                 </p>
               </div>
               <div class="comments_area">
@@ -119,33 +118,27 @@ const SingleArticle = () => {
           <div>
             {localStorage.getItem(article_id) ? (
               <button
-                className="SingleArticle__button--upvote-voted-up"
+                className="vote_button SingleArticle__button--upvote-voted-up"
                 onClick={() => updateVotes(-1)}
               >
+                <i class="fa-solid fa-thumbs-up"></i>
                 <p className="SingleArticle__p--upvote-text">
-                  Article Voted Up
+                  <b>REMOVE<br></br> UPVOTE</b>
                 </p>
-                <ThumbsUp size={32} />
               </button>
             ) : (
               <button
-                className="SingleArticle__button--upvote-no-vote"
+                className="vote_button SingleArticle__button--upvote-no-vote"
                 onClick={() => updateVotes(1)}
               >
+                <i class="fa-solid fa-thumbs-up"></i>
                 <p className="SingleArticle__p--upvote-text">
-                  Vote Up Article{" "}
+                <b>UPVOTE{" "}</b>
                 </p>
-                <ThumbsUp size={32} />
               </button>
             )}
 
-            {/* {isVotingError ? (
-              <h4 className="SingleArticle__h4--error">
-                Error Voting: Check Internet Connection
-              </h4>
-            ) : (
-              <h4 className="SingleArticle__h4">Votes gets updated: {votes}</h4>
-            )} */}
+            
           </div>
 
           <Comments article_id={article_id} />

@@ -18,11 +18,12 @@
 background-color: var(--bright);
 margin: 0.5rem;
  border-radius: 0.5rem;
-  border: black;
+  border: #202020;
   border-style: solid; 
 }
 .SingleArticle__p--upvote-text{
-  color: red;
+  font-size: 1rem;
+  color: var(--black);
   display:inline-block;
   
 }
@@ -81,26 +82,38 @@ margin: 0.5rem;
 } */
 
 
-
-.SingleArticle__button--upvote-no-vote {
-  width: 300px;
-  height: 100px;
-  font-size: 2rem;
-  
-  background-color: #058c42;
-  color: #ccc5b9;
-  
+.vote_button {
+  margin: auto;
+  width: 160px;
+  height: 60px;
+  font-size: 1rem;
   border-radius: 0.5rem;
   border-color: var(--black);
+  border-style: solid;
+  cursor: pointer;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+}
+
+.vote_button i {
+  margin-right: auto;
+  margin-left: 10px; 
+  font-size: 2rem;
+  color: #202020;
+}
+
+.vote_button p {
+  
+  margin-right: auto;
+}
+
+.SingleArticle__button--upvote-no-vote {
+  background-color: #598b2c;
+  color: #ccc5b9;
 }
 
 .SingleArticle__button--upvote-voted-up {
-  width: 300px;
-  height: 100px;
-  font-size: 2rem;
-  background-color: #ccc5b9;
+  background-color: #ed1c24;
   color: #058c42;
-  border-radius: 0.5rem;
-
-  border-color: var(--black);
 }
