@@ -80,6 +80,7 @@ font-family: 'Loved by the King', cursive; */
   .navbar {
     gap: 0.05rem;
     justify-content: space-around;
+    padding-bottom: 5px;
   }
 }
 

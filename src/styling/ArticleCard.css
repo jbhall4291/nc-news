@@ -37,10 +37,14 @@
   .ArticleCard__article {
     /* width: 100%; */
   width: 22vw;
-    
+  }
+    .details_area {
+      /* font-size: 1rem; */
+  
+  }    
     
   }
-}
+
 .container {
   
   display: grid;
@@ -124,7 +128,7 @@
 
 @media (min-width: 1280px) {
   .details_area {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 

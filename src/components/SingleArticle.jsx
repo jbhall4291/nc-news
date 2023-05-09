@@ -72,26 +72,68 @@ const SingleArticle = () => {
         <p>loading article, please wait...</p>
       ) : (
         <section className="SingleArticle__section">
-          <h3 className="SingleArticle__h3">{articleData.title}</h3>
-          <h4 className="SingleArticle__h4">
-            by {articleData.author} posted in {articleData.topic}
-          </h4>
-
-          <h5 className="SingleArticle__h5">
-            Posted {convertTimeAndDate(articleData.created_at)}
-          </h5>
+          <main className="SingleArticle__main">
           <img
             className="SingleArticle__img"
             src={articleData.article_img_url}
             alt={articleData.title}
           ></img>
-          <h4 className="SingleArticle__h4">{articleData.body}</h4>
+          <h3 className="SingleArticle__h3">{articleData.title}</h3>
+          <h4 className="SingleArticle__h4"><em>
+            by {articleData.author}
+            </em>
+          </h4>
+
+          
+          
+          <h5 className="SingleArticle__h5">{articleData.body}</h5>
+
+          <div class="SingleArticle__div--details_area">
+              <div class="time_area">
+                {" "}
+                <p>
+                  <i class="fa-solid fa-clock"></i>{" "}
+                  <span className="margin-on-mobile">
+                    {convertTimeAndDate(articleData.created_at)}
+                  </span>
+                </p>
+              </div>
+              {/* <div class="votes_area">
+                <p>
+                  <i class="fa-solid fa-thumbs-up"></i> 
+                  
+                  {isVotingError ? (
+              <h4 className="SingleArticle__h4--error">
+                Error Voting: Check Internet Connection
+              </h4>
+            ) : (
+              <p>
+                  {votes}{" "}
+                  </p>
+            )}
+                  
+        
+                  <span>votes</span>
+                </p>
+              </div> */}
+              <div class="comments_area">
+                <p>
+                  <i class="fa-solid fa-comment"></i>
+                  {" "}
+                  {pluraliseComments(articleData.comment_count)}
+                  
+                  
+                </p>
+              </div>
+            </div>
+          </main>
           <div>
             {localStorage.getItem(article_id) ? (
               <button
                 className="SingleArticle__button--upvote-voted-up"
                 onClick={() => updateVotes(-1)}
               >
+                <p className="SingleArticle__p--upvote-text">Article Voted Up</p>
                 <ThumbsUp size={32} />
               </button>
             ) : (
@@ -99,17 +141,19 @@ const SingleArticle = () => {
                 className="SingleArticle__button--upvote-no-vote"
                 onClick={() => updateVotes(1)}
               >
+
+                <p className="SingleArticle__p--upvote-text">Vote Up Article </p>
                 <ThumbsUp size={32} />
               </button>
             )}
 
-            {isVotingError ? (
+            {/* {isVotingError ? (
               <h4 className="SingleArticle__h4--error">
                 Error Voting: Check Internet Connection
               </h4>
             ) : (
-              <h4 className="SingleArticle__h4">Votes: {votes}</h4>
-            )}
+              <h4 className="SingleArticle__h4">Votes gets updated: {votes}</h4>
+            )} */}
           </div>
 
           <h4 className="SingleArticle__h4">
