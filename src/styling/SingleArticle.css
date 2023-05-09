@@ -101,6 +101,7 @@ max-width: 60%;
   border-radius: 0.5rem;
   border-color: var(--black);
   border-style: solid;
+  border-width: 3px;
   cursor: pointer;
   display: flex;  
   align-items: center;
@@ -122,6 +123,7 @@ max-width: 60%;
 .SingleArticle__button--upvote-no-vote {
   background-color: #598b2c;
   color: #ccc5b9;
+  
 }
 
 .SingleArticle__button--upvote-voted-up {

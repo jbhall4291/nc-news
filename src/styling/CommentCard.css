@@ -1,20 +1,40 @@
 .CommentCard__div {
   background-color: var(--bright);
-  margin: 5px;
-  width: 100vw;
   padding: 10px;
   color: #202020;
   border-radius: 0.5rem;
-  border: black;
+  border: var(--black);
   border-style: solid;
+  width: 100%
 }
 
 .CommentCard__p--posted {
   font-style: italic;
 }
 
-@media (min-width: 870px) {
+@media (min-width: 768px) {
   .CommentCard__div {
-    width: 400px;
+    width: 40%;
   }
+
+
+}
+
+
+@media (min-width: 1400px) {
+  .CommentCard__div {
+    width: 25%;
+  }
+}
+
+.CommentCard__div--details_area {
+  /* margin: 5px; */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "time_area votes_area";
+  grid-area: details_area;
+  font-size: 1rem;
 }
