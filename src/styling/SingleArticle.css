@@ -2,12 +2,14 @@
   background-color: var(--neutral);
   /* margin: 0.5rem; */
   /* height: 100%; */
-  
+  /* display: flex; */
+  padding: 0.5rem;
 }
 
-@media (min-width: 572px) {
+@media (min-width: 768px) {
   .SingleArticle__section {
-    width: 80%;
+    width: 65%;
+    
     margin: auto;
   }
   }
@@ -16,10 +18,19 @@
 
 .SingleArticle__main {
 background-color: var(--bright);
-margin: 0.5rem;
+margin: auto;
+
  border-radius: 0.5rem;
   border: #202020;
   border-style: solid; 
+  
+align-self: center;  
+}
+
+@media (min-width: 1000px) {
+.SingleArticle__main {
+max-width: 60%;
+}
 }
 .SingleArticle__p--upvote-text{
   font-size: 1rem;
@@ -83,7 +94,7 @@ margin: 0.5rem;
 
 
 .vote_button {
-  margin: auto;
+  margin: 1rem auto;
   width: 160px;
   height: 60px;
   font-size: 1rem;
