@@ -4,7 +4,7 @@ import { getArticleById, voteOnArticle } from "../utils/api";
 import Comments from "./Comments";
 import "../styling/SingleArticle.css";
 import { convertTimeAndDate } from "../utils/functions";
-import { ThumbsUp} from "phosphor-react";
+import { ThumbsUp } from "phosphor-react";
 
 import React from "react";
 
@@ -21,14 +21,16 @@ const SingleArticle = () => {
   useEffect(() => {
     setErr(false);
     setIsLoading(true);
-    getArticleById(article_id).then((article) => {
-      setArticleData(article);
-      setVotes(article.votes);
-      setIsLoading(false);
-    }).catch((err) => {
-      setErr(err.response.data.msg);
-      setIsLoading(false);
-    })
+    getArticleById(article_id)
+      .then((article) => {
+        setArticleData(article);
+        setVotes(article.votes);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setErr(err.response.data.msg);
+        setIsLoading(false);
+      });
   }, [article_id]);
 
   const pluraliseComments = (comment_count) => {
@@ -73,22 +75,19 @@ const SingleArticle = () => {
       ) : (
         <section className="SingleArticle__section">
           <main className="SingleArticle__main">
-          <img
-            className="SingleArticle__img"
-            src={articleData.article_img_url}
-            alt={articleData.title}
-          ></img>
-          <h3 className="SingleArticle__h3">{articleData.title}</h3>
-          <h4 className="SingleArticle__h4"><em>
-            by {articleData.author}
-            </em>
-          </h4>
+            <img
+              className="SingleArticle__img"
+              src={articleData.article_img_url}
+              alt={articleData.title}
+            ></img>
+            <h3 className="SingleArticle__h3">{articleData.title}</h3>
+            <h4 className="SingleArticle__h4">
+              <em>by {articleData.author}</em>
+            </h4>
 
-          
-          
-          <h5 className="SingleArticle__h5">{articleData.body}</h5>
+            <h5 className="SingleArticle__h5">{articleData.body}</h5>
 
-          <div class="SingleArticle__div--details_area">
+            <div class="SingleArticle__div--details_area">
               <div class="time_area">
                 {" "}
                 <p>
@@ -98,31 +97,21 @@ const SingleArticle = () => {
                   </span>
                 </p>
               </div>
-              {/* <div class="votes_area">
+              <div class="votes_area">
                 <p>
-                  <i class="fa-solid fa-thumbs-up"></i> 
-                  
+                  <i class="fa-solid fa-thumbs-up"></i>{" "}
                   {isVotingError ? (
-              <h4 className="SingleArticle__h4--error">
-                Error Voting: Check Internet Connection
-              </h4>
-            ) : (
-              <p>
-                  {votes}{" "}
-                  </p>
-            )}
+                    <span className="error">Error Voting!</span>
+                  ) : (
+                    <span>{votes} votes</span>
+                  )}
                   
-        
-                  <span>votes</span>
                 </p>
-              </div> */}
+              </div>
               <div class="comments_area">
                 <p>
-                  <i class="fa-solid fa-comment"></i>
-                  {" "}
+                  <i class="fa-solid fa-comment"></i>{" "}
                   {pluraliseComments(articleData.comment_count)}
-                  
-                  
                 </p>
               </div>
             </div>
@@ -133,7 +122,9 @@ const SingleArticle = () => {
                 className="SingleArticle__button--upvote-voted-up"
                 onClick={() => updateVotes(-1)}
               >
-                <p className="SingleArticle__p--upvote-text">Article Voted Up</p>
+                <p className="SingleArticle__p--upvote-text">
+                  Article Voted Up
+                </p>
                 <ThumbsUp size={32} />
               </button>
             ) : (
@@ -141,8 +132,9 @@ const SingleArticle = () => {
                 className="SingleArticle__button--upvote-no-vote"
                 onClick={() => updateVotes(1)}
               >
-
-                <p className="SingleArticle__p--upvote-text">Vote Up Article </p>
+                <p className="SingleArticle__p--upvote-text">
+                  Vote Up Article{" "}
+                </p>
                 <ThumbsUp size={32} />
               </button>
             )}
@@ -155,10 +147,6 @@ const SingleArticle = () => {
               <h4 className="SingleArticle__h4">Votes gets updated: {votes}</h4>
             )} */}
           </div>
-
-          <h4 className="SingleArticle__h4">
-            {pluraliseComments(articleData.comment_count)}
-          </h4>
 
           <Comments article_id={article_id} />
         </section>

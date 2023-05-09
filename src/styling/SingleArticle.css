@@ -37,8 +37,8 @@ margin: 0.5rem;
   font-size: 1.1rem;
 }
 
-.SingleArticle__h4--error {
-  margin: 5px;
+.error {
+ 
   color: red;
 }
 
@@ -60,10 +60,14 @@ margin: 0.5rem;
   grid-auto-flow: row;
   grid-template-areas: "time_area votes_area comments_area";
   grid-area: details_area;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
-
+@media (min-width: 425px) {
+.SingleArticle__div--details_area{
+  font-size: 1rem;
+}
+}
 .SingleArticle__img {
   width: 100%;
   border-radius: 0.2rem;
