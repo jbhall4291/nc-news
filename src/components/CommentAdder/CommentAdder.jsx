@@ -25,46 +25,43 @@ const CommentAdder = ({ article_id, setComments }) => {
         setComments((currComments) => {
           return [addedComment, ...currComments];
         });
-        setSubmissionFeedbackMessage("comment posted, thank you!");
+        setSubmissionFeedbackMessage("COMMENT POSTED, THANKS!");
         setCommentText("");
         setIsPosting(false);
       })
       .catch((error) => {
         setSubmissionFeedback(true);
         setSubmissionFeedbackMessage(
-          `comment not posted, submit again! (${error.message})`
+          `COMMENT NOT POSTED, TRY AGAIN! (${error.message})`
         );
       });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     setSubmissionFeedback(false);
     setSubmissionFeedbackMessage("");
     if (commentText === "") {
       setSubmissionFeedback(true);
-      setSubmissionFeedbackMessage("comment is empty!");
+      setSubmissionFeedbackMessage("COMMENT FIELD EMPTY!");
     } else if (commentText === lastSuccessfullySubmittedCommentText) {
       setSubmissionFeedback(true);
-      setSubmissionFeedbackMessage("comment already posted!");
+      setSubmissionFeedbackMessage("COMMENT ALREADY POSTED!");
     } else {
       setSubmissionFeedback(true);
-      setSubmissionFeedbackMessage("adding comment...");
-
+      setSubmissionFeedbackMessage("ADDING COMMENT...");
       postAComment();
     }
   };
 
   return (
     <section className="CommentAdder__section">
-      <form onSubmit={handleSubmit} class="container">
-        <label className="formLabel label" htmlFor="commentText">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="commentText">
           <b>POST A COMMENT</b>
         </label>
 
         <input
-          className="text-area"
           value={commentText}
           id="commentText"
           type="text"
@@ -82,7 +79,9 @@ const CommentAdder = ({ article_id, setComments }) => {
 
         <p
           className={
-            isSubmissionFeedback ? "visible feedback" : "hidden feedback"
+            isSubmissionFeedback
+              ? "feedback CommentAdder__p--feedback-visible"
+              : "feedback CommentAdder__p--feedback-hidden"
           }
         >
           {submissionFeedbackMessage}

@@ -9,23 +9,23 @@ const CommentCard = ({ comment }) => {
       <Quotes size={20} mirrored={true} />
       <b>{comment.body}</b>
       <Quotes size={20} />
-      <p><em>by {comment.author}</em>nice</p>
-      
-      
+      <p>
+        <em>by {comment.author}</em>nice
+      </p>
 
-      <div class="CommentCard__div--details_area">
-        <div class="time_area">
+      <div className="CommentCard__div--details_area">
+        <div className="time_area">
           {" "}
           <p>
-            <i class="fa-solid fa-clock"></i>{" "}
+            <i className="fa-solid fa-clock"></i>{" "}
             <span className="margin-on-mobile">
               {convertTimeAndDate(comment.created_at)}
             </span>
           </p>
         </div>
-        <div class="votes_area">
+        <div className="votes_area">
           <p>
-            <i class="fa-solid fa-thumbs-up"></i> {comment.votes}{" "}
+            <i className="fa-solid fa-thumbs-up"></i> {comment.votes}{" "}
             <span>votes</span>
           </p>
         </div>

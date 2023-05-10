@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #FFE15C;
+  background-color: var(--neutral);
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Shade&family=Darumadrop+One&family=Londrina+Shadow&family=Monofett&family=Moo+Lah+Lah&family=Nabla&display=swap");
@@ -11,7 +11,6 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Imprima&family=Libre+Franklin:wght@400;800&family=Oleo+Script+Swash+Caps:wght@700&family=Pacifico&family=Rampart+One&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Bungee&family=Darumadrop+One&family=Luckiest+Guy&family=Rampart+One&display=swap");
-
 
 /* width */
 ::-webkit-scrollbar {
@@ -23,7 +22,6 @@ body {
   /* border: black;
   border-style: solid; */
   /* box-shadow: inset 0 0 5px var(--black); */
-  
 }
 
 /* Handle */

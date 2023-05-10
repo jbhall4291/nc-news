@@ -6,7 +6,7 @@ import Navbar from "../Navbar/Navbar";
 const Header = () => {
   return (
     <header>
-      <h1 className="header__h1">NewsBuzz</h1>
+      <h1>NewsBuzz</h1>
       <Navbar />
     </header>
   );

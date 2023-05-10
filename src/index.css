@@ -1,6 +1,14 @@
+:root {
+  --black: #202020;
+  --yellow: #ffd100;
+  --neutral: white;
+  --green: #00cc66;
+  --red: #ed1c24;
+}
+
 body {
   overflow-y: scroll;
-  background-color: #ffe15c;
+  background-color: var(--neutral);
   height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -13,10 +21,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-:root {
-  --black: #202020;
-  --bright: #ffd100;
-  --neutral: #ffe15c;
 }

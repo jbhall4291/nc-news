@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ArticleCard.css";
-// import { ThumbsUp } from "phosphor-react";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 import { convertTimeAndDate } from "../../utils/functions";
@@ -13,12 +12,12 @@ const ArticleCard = ({ article }) => {
         className="ArticleCard__Link"
         to={`/articles/${article.article_id}`}
       >
-        <article className="ArticleCard__article">
-          <div class="container">
-            <div class="image_area">
+        <article>
+          <div className="Article__div--container">
+            <div className="Article__div--image-area">
               <img src={article.article_img_url} alt={article.title}></img>
             </div>
-            <div class="title_area">
+            <div className="Article__div--title-area">
               <p>
                 <b>{article.title}</b>
                 <br></br>
@@ -26,42 +25,34 @@ const ArticleCard = ({ article }) => {
               </p>
               <p></p>
             </div>
-            <div class="details_area">
-              <div class="time_area">
+            <div className="Article__div--details-area">
+              <div className="Article__div--time-area">
                 {" "}
                 <p>
-                  <i class="fa-solid fa-clock"></i>{" "}
-                  <span className="margin-on-mobile">
-                    {convertTimeAndDate(article.created_at)}
-                  </span>
+                  <i className="fa-solid fa-clock"></i>{" "}
+                  <span>{convertTimeAndDate(article.created_at)}</span>
                 </p>
               </div>
-              <div class="votes_area">
+              <div className="Article__div--votes-area">
                 <p>
-                  <i class="fa-solid fa-thumbs-up"></i> {article.votes}{" "}
-                  <span className="hide-on-mobile">votes</span>
+                  {localStorage.getItem(article.article_id) ? (
+                    <i className="fa-solid fa-thumbs-up ArticleCard__i--voted">
+                      {" "}
+                    </i>
+                  ) : (
+                    <i className="fa-solid fa-thumbs-up"> </i>
+                  )}
+                  {article.votes} <span className="hide-on-mobile"> votes</span>
                 </p>
               </div>
-              <div class="comments_area">
+              <div className="Article__div--comments-area">
                 <p>
-                  <i class="fa-solid fa-comment"></i> {article.comment_count}{" "}
-                  <span className="hide-on-mobile">comments</span>
+                  <i className="fa-solid fa-comment"></i>{" "}
+                  {article.comment_count} <span>comments</span>
                 </p>
               </div>
             </div>
           </div>
-
-          {/* used to check if this user has voted for this article, on this device
-              {localStorage.getItem(article.article_id) ? (
-                <ThumbsUp className="ArticleCard__ThumbsUp--active" size={32} />
-              ) : (
-                <ThumbsUp
-                  className="ArticleCard__ThumbsUp--not-active"
-                  size={32}
-                />
-
-
-               */}
         </article>
       </Link>
     </li>

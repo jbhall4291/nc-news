@@ -1,21 +1,13 @@
-.navbar {
-  background-color: #ffe15c;
+nav {
+  background-color: var(--yellow);
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 1.5rem;
-  /* padding: 0 0 0.8rem 0;
-  /* border-radius: 0 0 0.5rem 0.5rem; */
-
-  border-bottom: #202020;
-  /* border-bottom-style: dotted; */
-}
-
-@media (min-width: 820px) {
 }
 
 .Navbar__Link {
-  background-color: var(--bright);
+  background-color: var(--yellow);
   color: var(--primary-color);
   text-decoration: none;
   padding: 5px 5px;
@@ -41,18 +33,14 @@
 }
 
 .Navbar__Link:hover {
-  background-color: #202020;
+  background-color: var(--black);
   color: var(--neutral);
 }
 
 .Navbar__Link--active {
-  background-color: #202020;
+  background-color: var(--black);
   color: var(--neutral);
 }
-
-/* font-family: 'Imprima', sans-serif;
-font-family: 'Pacifico', cursive;
-font-family: 'Loved by the King', cursive; */
 
 .header__h1--navbar {
   display: none;
@@ -61,23 +49,20 @@ font-family: 'Loved by the King', cursive; */
 @media (min-width: 600px) {
   .header__h1--navbar {
     display: block;
-
-    background-color: var(--neutral);
-
+    background-color: var(--yellow);
     color: var(--black);
-    /* text-shadow: 0px 2px var(--secondary-color); */
     font-size: 4.5rem;
     margin: 0px;
     padding: 0;
     font-family: "Luckiest Guy", cursive;
   }
-  .navbar {
+  nav {
     gap: 0.2rem;
   }
 }
 
 @media (max-width: 430px) {
-  .navbar {
+  nav {
     gap: 0.05rem;
     justify-content: space-around;
     padding-bottom: 5px;

@@ -4,7 +4,6 @@ import { getArticleById, voteOnArticle } from "../../utils/api";
 import Comments from "../Comments/Comments";
 import "./SingleArticle.css";
 import { convertTimeAndDate } from "../../utils/functions";
-import { ThumbsUp } from "phosphor-react";
 
 import React from "react";
 
@@ -74,42 +73,40 @@ const SingleArticle = () => {
         <p>loading article, please wait...</p>
       ) : (
         <section className="SingleArticle__section">
-          <main className="SingleArticle__main">
+          <main>
             <img
-              className="SingleArticle__img"
               src={articleData.article_img_url}
               alt={articleData.title}
             ></img>
-            <h3 className="SingleArticle__h3">{articleData.title}</h3>
-            <h4 className="SingleArticle__h4">
+            <h3>{articleData.title}</h3>
+            <h4>
               <em>by {articleData.author}</em>
             </h4>
 
-            <h5 className="SingleArticle__h5">{articleData.body}</h5>
+            <h5>{articleData.body}</h5>
 
-            <div class="SingleArticle__div--details_area">
-              <div class="time_area">
-                {" "}
+            <div className="SingleArticle__div--details_area">
+              <div>
                 <p>
-                  <i class="fa-solid fa-clock"></i>{" "}
-                  <span className="margin-on-mobile">
-                    {convertTimeAndDate(articleData.created_at)}
-                  </span>
+                  <i className="fa-solid fa-clock"></i>{" "}
+                  <span>{convertTimeAndDate(articleData.created_at)}</span>
                 </p>
               </div>
-              <div class="votes_area">
+              <div>
                 <p>
-                  <i class="fa-solid fa-thumbs-up"></i>{" "}
+                  <i className="fa-solid fa-thumbs-up"></i>{" "}
                   {isVotingError ? (
-                    <span className="error">Error Voting!</span>
+                    <span className="SingleArticle__span--error">
+                      Error Voting!
+                    </span>
                   ) : (
                     <span>{votes} votes</span>
                   )}
                 </p>
               </div>
-              <div class="comments_area">
+              <div>
                 <p>
-                  <i class="fa-solid fa-comment"></i>{" "}
+                  <i className="fa-solid fa-comment"></i>{" "}
                   {pluraliseComments(articleData.comment_count)}
                 </p>
               </div>
@@ -118,27 +115,27 @@ const SingleArticle = () => {
           <div>
             {localStorage.getItem(article_id) ? (
               <button
-                className="vote_button SingleArticle__button--upvote-voted-up"
+                className="SingleArticle__button--voted-up"
                 onClick={() => updateVotes(-1)}
               >
-                <i class="fa-solid fa-thumbs-up"></i>
-                <p className="SingleArticle__p--upvote-text">
-                  <b>REMOVE<br></br> UPVOTE</b>
+                <i className="fa-solid fa-thumbs-up"></i>
+                <p>
+                  <b>
+                    REMOVE<br></br> UPVOTE
+                  </b>
                 </p>
               </button>
             ) : (
               <button
-                className="vote_button SingleArticle__button--upvote-no-vote"
+                className="SingleArticle__button--no-vote"
                 onClick={() => updateVotes(1)}
               >
-                <i class="fa-solid fa-thumbs-up"></i>
-                <p className="SingleArticle__p--upvote-text">
-                <b>UPVOTE{" "}</b>
+                <i className="fa-solid fa-thumbs-up"></i>
+                <p>
+                  <b>UPVOTE </b>
                 </p>
               </button>
             )}
-
-            
           </div>
 
           <Comments article_id={article_id} />

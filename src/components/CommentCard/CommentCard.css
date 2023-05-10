@@ -1,11 +1,11 @@
 .CommentCard__div {
-  background-color: var(--bright);
+  background-color: var(--yellow);
   padding: 10px;
-  color: #202020;
+  color: var(--black);
   border-radius: 0.5rem;
   border: var(--black);
   border-style: solid;
-  width: 100%
+  width: 100%;
 }
 
 .CommentCard__p--posted {
@@ -16,10 +16,7 @@
   .CommentCard__div {
     width: 40%;
   }
-
-
 }
-
 
 @media (min-width: 1400px) {
   .CommentCard__div {
@@ -28,7 +25,6 @@
 }
 
 .CommentCard__div--details_area {
-  /* margin: 5px; */
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;

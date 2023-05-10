@@ -1,15 +1,13 @@
 .Comments__div {
-    background-color: var(--neutral);
-    padding: 0.5rem;
+  background-color: var(--neutral);
+  padding: 0.5rem;
 }
 
 .Comments__ul {
-    list-style: none;
-    padding-left: 0px;
-    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 0.5rem;
+  list-style: none;
+  padding-left: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 0.5rem;
 }
-

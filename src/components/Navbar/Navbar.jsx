@@ -10,7 +10,7 @@ const Navbar = () => {
   }
 
   return (
-    <section className="navbar">
+    <nav>
     <h1 className="header__h1--navbar">NewsBuzz</h1>
       <Link
         to="/"
@@ -51,7 +51,7 @@ const Navbar = () => {
       >
         Football
       </Link>
-    </section>
+    </nav>
   );
 };
 

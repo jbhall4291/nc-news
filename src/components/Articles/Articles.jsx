@@ -30,13 +30,13 @@ const Articles = () => {
 
   if (isLoading)
     return (
-      <section className="section__loading">
+      <section className="Articles__section--loading">
         <p>loading articles, please wait...</p>
       </section>
     );
   if (err)
     return (
-      <section className="section__error">
+      <section className="Articles__section--error">
         <p>no articles found</p>
       </section>
     );
