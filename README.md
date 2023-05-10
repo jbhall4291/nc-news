@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# 🐝 NewsBuzz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://github.com/jbhall4291/newsbuzz/blob/main/newsbuzz.png" width="600"/>
 
-## Available Scripts
+## Welcome to NewsBuzz!
 
-In the project directory, you can run:
+NewsBuzz is a social-news aggregation app in the style of Reddit, allowing users to view, vote and comment on articles... and more!
 
-### `npm start`
+You can [watch a short video of me demonstrating the app here](link pending), otherwise read on!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project was built as part of the amazing Northcoders Full-Stack Software Developer Bootcamp with the aim of demonstrating skills including:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Programming in JavaScript and React
+* Developing using HTML and CSS, inc. responsive web design
+* Building a RESTful Web API
+* Interacting with PSQL databases
+* Developing using TDD
 
-### `npm test`
+The corresponding backend for this project can [be found here](https://github.com/jbhall4291/newsbuzz-backend).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+* View all articles
+* View a specific article
+* Filter, sort and/or order articles via queries
+* View, post and delete comments on articles
+* Upvote or downvote an article
+* View all users
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Using NewsBuzz
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Option One
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The [web app is live and waiting to be played with!](https://newsbuzz-jbhall4291.netlify.app/)
+Please bear in mind the backend is hosted on Render's free tier, so there may be a slight delay on first waking up.
 
-### `npm run eject`
+### Option Two
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run a local copy please ensure you are running node (minimum version 19.5.0) then follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone this repository:
+   ```
+   git clone https://github.com/jbhall4291/newsbuzz
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Change into this repos directory:
+   ```
+   cd newsbuzz
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Install dependencies
+   ```
+   npm install
+   ```
 
-## Learn More
+4. Run a local instance of NewsBuzz
+   ```
+   npm start
+   ```
+   
+5. Your default web browser should now automatically open NewsBuzz, if not point your browser at http://localhost:3000 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+6. Enjoy! 🎉
