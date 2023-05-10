@@ -1,11 +1,12 @@
 .CommentAdder__section {
-    background-color: var(--neutral);
-    
-    
-    
+    background-color: var(--bright);
+    border-color: var(--black);    
+    border-width: 3px;
+    border-style: solid;    
     border-radius: 0.5rem;
-    margin: 10px;
-    padding: 10px;
+    margin: auto;
+    
+    width: 80%;
     
 }
 
@@ -18,7 +19,47 @@
 .visible {
     visibility: visible;
     height: 30px;
-    background-color: var(--neutral);
+
 
 }
 
+.container {  
+    padding: 0.2rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "label label"
+      "text-area button"
+      "feedback feedback";
+  }
+  
+  .label { grid-area: label; 
+/* background-color: red; */
+font-size: 1rem;
+  color: var(--black);}
+  
+  .text-area { grid-area: text-area;
+    background-color: green;
+font-size: 16px;
+border-radius: 0.5rem;
+  border-color: var(--black);
+  border-style: solid;
+  border-width: 3px; }
+  
+  .button { grid-area: button;
+    background-color: #598b2c;
+    border-radius: 0.5rem;
+  border-color: var(--black);
+  border-style: solid;
+  border-width: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--black);
+ }
+  
+  .feedback { grid-area: feedback;
+    background-color: brown }
+  

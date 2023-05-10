@@ -58,18 +58,13 @@ const CommentAdder = ({ article_id, setComments }) => {
 
   return (
     <section className="CommentAdder__section">
-      <h2>add a comment</h2>
-
-      <p className={isSubmissionFeedback ? "visible" : "hidden"}>
-        {submissionFeedbackMessage}
-      </p>
-
-      <form onSubmit={handleSubmit}>
-        <label className="formLabel" htmlFor="commentText">
-          add a comment
+      <form onSubmit={handleSubmit} class="container">
+        <label className="formLabel label" htmlFor="commentText">
+          <b>POST A COMMENT</b>
         </label>
 
         <input
+          className="text-area"
           value={commentText}
           id="commentText"
           type="text"
@@ -79,11 +74,19 @@ const CommentAdder = ({ article_id, setComments }) => {
         <button
           type="submit"
           id="button"
-          className="CommentAdder__button"
+          className="button"
           disabled={isPosting}
         >
-          Submit
+          <b>SUBMIT</b>
         </button>
+
+        <p
+          className={
+            isSubmissionFeedback ? "visible feedback" : "hidden feedback"
+          }
+        >
+          {submissionFeedbackMessage}
+        </p>
       </form>
     </section>
   );
