@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import "../styling/Comments.css";
+import "./Comments.css";
 import { useState, useEffect } from "react";
-import { getArticleComments } from "../utils/api";
-import CommentCard from "./CommentCard";
-import CommentAdder from "./CommentAdder";
+import { getArticleComments } from "../../utils/api";
+import CommentCard from "../CommentCard/CommentCard";
+import CommentAdder from "../CommentAdder/CommentAdder";
 
 const Comments = () => {
   const [isLoading, setIsLoading] = useState(true);

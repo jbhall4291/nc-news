@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import "../styling/CommentAdder.css";
-import { postComment } from "../utils/api";
+import "./CommentAdder.css";
+import { postComment } from "../../utils/api";
 
 const CommentAdder = ({ article_id, setComments }) => {
   const [commentText, setCommentText] = useState("");

@@ -1,15 +1,15 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Articles from "./components/Articles";
-import Header from "./components/Header";
+import Articles from "./components/Articles/Articles";
+import Header from "./components/Header/Header";
 
-import SingleArticle from "./components/SingleArticle";
+import SingleArticle from "./components/SingleArticle/SingleArticle";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      
+
       <Routes>
         <Route path="/" element={<Articles />} />
 

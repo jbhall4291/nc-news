@@ -1,6 +1,6 @@
 import React from "react";
-import { convertTimeAndDate } from "../utils/functions";
-import "../styling/CommentCard.css";
+import { convertTimeAndDate } from "../../utils/functions";
+import "./CommentCard.css";
 import { Quotes } from "phosphor-react";
 
 const CommentCard = ({ comment }) => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styling/Navbar.css";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [selectedTopic, setSelectedTopic] = useState("allTopics");

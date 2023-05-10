@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styling/ArticleCard.css";
+import "./ArticleCard.css";
 // import { ThumbsUp } from "phosphor-react";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-import { convertTimeAndDate } from "../utils/functions";
+import { convertTimeAndDate } from "../../utils/functions";
 
 const ArticleCard = ({ article }) => {
   return (

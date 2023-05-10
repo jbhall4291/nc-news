@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { getArticles } from "../utils/api";
-import ArticleCard from "./ArticleCard";
-import "../styling/Articles.css";
+import { getArticles } from "../../utils/api";
+import ArticleCard from "../ArticleCard/ArticleCard";
+import "./Articles.css";
 import { useParams } from "react-router-dom";
 
 const Articles = () => {

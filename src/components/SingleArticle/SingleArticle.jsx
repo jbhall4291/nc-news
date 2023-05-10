@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getArticleById, voteOnArticle } from "../utils/api";
-import Comments from "./Comments";
-import "../styling/SingleArticle.css";
-import { convertTimeAndDate } from "../utils/functions";
+import { getArticleById, voteOnArticle } from "../../utils/api";
+import Comments from "../Comments/Comments";
+import "./SingleArticle.css";
+import { convertTimeAndDate } from "../../utils/functions";
 import { ThumbsUp } from "phosphor-react";
 
 import React from "react";
