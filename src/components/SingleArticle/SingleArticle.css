@@ -17,6 +17,7 @@
   border: var(--black);
   border-style: solid;
   align-self: center;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 1000px) {
@@ -71,7 +72,7 @@
   color: var(--red);
 }
 
-.SingleArticle__section button {
+.SingleArticle__button {
   margin: 1rem auto;
   width: 160px;
   height: 60px;
@@ -86,14 +87,14 @@
   justify-content: center;
 }
 
-.SingleArticle__section button i {
+.SingleArticle__button i {
   margin-right: auto;
   margin-left: 10px;
   font-size: 2rem;
   color: var(--black);
 }
 
-.SingleArticle__section button p {
+.SingleArticle__button p {
   margin-right: auto;
   font-size: 1rem;
   color: var(--black);

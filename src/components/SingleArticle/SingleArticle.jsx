@@ -111,11 +111,10 @@ const SingleArticle = () => {
                 </p>
               </div>
             </div>
-          </main>
-          <div>
+            <div>
             {localStorage.getItem(article_id) ? (
               <button
-                className="SingleArticle__button--voted-up"
+                className="SingleArticle__button--voted-up SingleArticle__button"
                 onClick={() => updateVotes(-1)}
               >
                 <i className="fa-solid fa-thumbs-up"></i>
@@ -127,7 +126,7 @@ const SingleArticle = () => {
               </button>
             ) : (
               <button
-                className="SingleArticle__button--no-vote"
+                className="SingleArticle__button--no-vote SingleArticle__button"
                 onClick={() => updateVotes(1)}
               >
                 <i className="fa-solid fa-thumbs-up"></i>
@@ -137,6 +136,8 @@ const SingleArticle = () => {
               </button>
             )}
           </div>
+          </main>
+          
 
           <Comments article_id={article_id} />
         </section>

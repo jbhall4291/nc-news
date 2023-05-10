@@ -65,15 +65,11 @@ const CommentAdder = ({ article_id, setComments }) => {
           value={commentText}
           id="commentText"
           type="text"
+          placeholder="type your comment here..."
           onChange={(event) => setCommentText(event.target.value)}
         />
 
-        <button
-          type="submit"
-          id="button"
-          className="button"
-          disabled={isPosting}
-        >
+        <button className="CommentAdder__button" type="submit" id="button" disabled={isPosting}>
           <b>SUBMIT</b>
         </button>
 
