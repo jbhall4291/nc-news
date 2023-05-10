@@ -43,6 +43,7 @@ const Articles = () => {
 
   return (
     <section className="Articles__section">
+    <div className="Articles__div--filter">
       <select
         value={selectedSortBy}
         onChange={(e) => setSelectedSortBy(e.target.value)}
@@ -58,6 +59,7 @@ const Articles = () => {
         <option value="desc">Descending</option>
         <option value="asc">Ascending</option>
       </select>
+      </div>
       <ul className="Articles__ul">
         {articles.map((article) => {
           return (

@@ -15,8 +15,12 @@
   padding: 0.3rem;
 }
 
+.Articles__div--filter {
+  background-color: var(--yellow);
+  padding-bottom: 5px;
+}
+
 .Articles__section select {
-  margin-top: 10px;
   padding: 4px 8px;
   border: 1px solid var(--black);
   border-radius: 0.5rem;
