@@ -27,29 +27,20 @@ const ArticleCard = ({ article }) => {
             </div>
             <div className="Article__div--details-area">
               <div className="Article__div--time-area">
-                {" "}
-                <p>
-                  <i className="fa-solid fa-clock"></i>{" "}
-                  <span>{convertTimeAndDate(article.created_at)}</span>
-                </p>
+                <i className="fa-solid fa-clock"></i>
+                <span>{convertTimeAndDate(article.created_at)}</span>
               </div>
               <div className="Article__div--votes-area">
-                <p>
-                  {localStorage.getItem(article.article_id) ? (
-                    <i className="fa-solid fa-thumbs-up ArticleCard__i--voted">
-                      {" "}
-                    </i>
-                  ) : (
-                    <i className="fa-solid fa-thumbs-up"> </i>
-                  )}
-                  {article.votes} <span className="hide-on-mobile"> votes</span>
-                </p>
+                {localStorage.getItem(article.article_id) ? (
+                  <i className="fa-solid fa-thumbs-up ArticleCard__i--voted"></i>
+                ) : (
+                  <i className="fa-solid fa-thumbs-up"> </i>
+                )}
+                {article.votes} <span className="hide-on-mobile">votes</span>
               </div>
               <div className="Article__div--comments-area">
-                <p>
-                  <i className="fa-solid fa-comment"></i>{" "}
-                  {article.comment_count} <span>comments</span>
-                </p>
+                <i className="fa-solid fa-comment"></i>{article.comment_count}{" "}
+                <span>comments</span>
               </div>
             </div>
           </div>

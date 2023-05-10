@@ -6,7 +6,7 @@
   color: var(--black);
   border-radius: 0.5rem;
   background-color: var(--yellow);
-  
+
   border-style: solid;
   overflow: hidden;
   width: 96vw;
@@ -88,19 +88,21 @@
   font-size: 0.8rem;
 }
 
-@media (min-width: 1280px) {
-  .Article__div--details-area {
-    font-size: 0.9rem;
-  }
-}
+
 
 @media (min-width: 600px) {
   .Article__div--details-area {
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 20px;
+font-size: 0.9rem;
   }
 }
 
+@media (min-width: 1280px) {
+  .Article__div--details-area {
+    font-size: 1rem;
+  }
+}
 .Article__div--details-area p {
   margin: 0;
 }
@@ -131,4 +133,8 @@
 
 .ArticleCard__i--voted {
   color: var(--green);
+}
+
+.Article__div--details-area i {
+  margin-right: 4px;
 }
