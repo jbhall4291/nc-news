@@ -32,9 +32,12 @@
 }
 
 .Articles__section--loading {
+  padding-top: 50px;
   margin: auto;
+  text-align: center;
   width: 80vw;
   color: var(--black);
+  
 }
 
 .Articles__section--error {

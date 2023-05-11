@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./ArticleCard.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 
+
 import { convertTimeAndDate } from "../../utils/functions";
 
 const ArticleCard = ({ article }) => {
@@ -13,6 +14,7 @@ const ArticleCard = ({ article }) => {
         to={`/articles/${article.article_id}`}
       >
         <article>
+        
           <div className="Article__div--container">
             <div className="Article__div--image-area">
               <img src={article.article_img_url} alt={article.title}></img>

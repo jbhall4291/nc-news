@@ -1,0 +1,37 @@
+/* Spinner LoadBar */
+.ActivityIndicator__div {
+    display: inline-block;
+  width: 200px;
+  height: 18px;
+  /* border: 3px black solid; */
+  border-radius:0.5rem;
+  background: linear-gradient(
+    -60deg,
+    var(--black) 0%,
+    var(--black) 50%,
+    var(--yellow) 50%,
+    var(--yellow) 75%,
+    var(--black) 75%,
+    var(--black)
+  );
+  background-size: 20px 30px;
+  background-position: 0px 0px;
+  -webkit-animation: spLoadBar 0.8s infinite linear;
+  animation: spLoadBar 0.8s infinite linear;
+}
+@-webkit-keyframes spLoadBar {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -20px 0px;
+  }
+}
+@keyframes spLoadBar {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -20px 0px;
+  }
+}

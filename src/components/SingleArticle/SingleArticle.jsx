@@ -4,6 +4,7 @@ import { getArticleById, voteOnArticle } from "../../utils/api";
 import Comments from "../Comments/Comments";
 import "./SingleArticle.css";
 import { convertTimeAndDate } from "../../utils/functions";
+import ActivityIndicator from "../ActivityIndicator/ActivityIndicator";
 
 import React from "react";
 
@@ -70,7 +71,10 @@ const SingleArticle = () => {
   return (
     <div>
       {isLoading ? (
+        <>
         <p>loading article, please wait...</p>
+        <ActivityIndicator/>
+        </>
       ) : (
         <section className="SingleArticle__section">
           <main>
