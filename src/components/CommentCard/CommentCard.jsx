@@ -2,6 +2,7 @@ import React from "react";
 import { convertTimeAndDate } from "../../utils/functions";
 import "./CommentCard.css";
 import { Quotes } from "phosphor-react";
+import { deleteComment } from "../../utils/api";
 
 const CommentCard = ({ comment, loggedInUser }) => {
   return (
@@ -42,7 +43,7 @@ const CommentCard = ({ comment, loggedInUser }) => {
         {loggedInUser === comment.author && (
           <button
             className="CommentCard__button--remove-comment"
-            // onClick={() => updateVotes(-1)}
+            onClick={() => deleteComment(comment.comment_id)}
           >
             {/* <i className="fa-solid fa-thumbs-up"></i> */}
             <p>
