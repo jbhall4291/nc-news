@@ -26,6 +26,8 @@
     "comment-button";
 
   pointer-events: none;
+  transition: background-color 0.3s ease; /* Add a transition for smooth color change */
+
 }
 
 .CommentCard__div:hover {

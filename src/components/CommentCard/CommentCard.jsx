@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { convertTimeAndDate } from "../../utils/functions";
 import "./CommentCard.css";
 import { Quotes } from "phosphor-react";
