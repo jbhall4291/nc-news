@@ -8,7 +8,7 @@ import ActivityIndicator from "../ActivityIndicator/ActivityIndicator";
 
 import React from "react";
 
-const SingleArticle = () => {
+const SingleArticle = (props) => {
   const { article_id } = useParams();
 
   const [articleData, setArticleData] = useState({});
@@ -72,8 +72,8 @@ const SingleArticle = () => {
     <div>
       {isLoading ? (
         <>
-        <p>loading article, please wait...</p>
-        <ActivityIndicator/>
+          <p>loading article, please wait...</p>
+          <ActivityIndicator />
         </>
       ) : (
         <section className="SingleArticle__section">
@@ -116,34 +116,33 @@ const SingleArticle = () => {
               </div>
             </div>
             <div>
-            {localStorage.getItem(article_id) ? (
-              <button
-                className="SingleArticle__button--voted-up SingleArticle__button"
-                onClick={() => updateVotes(-1)}
-              >
-                <i className="fa-solid fa-thumbs-up"></i>
-                <p>
-                  <b>
-                    REMOVE<br></br> UPVOTE
-                  </b>
-                </p>
-              </button>
-            ) : (
-              <button
-                className="SingleArticle__button--no-vote SingleArticle__button"
-                onClick={() => updateVotes(1)}
-              >
-                <i className="fa-solid fa-thumbs-up"></i>
-                <p>
-                  <b>UPVOTE </b>
-                </p>
-              </button>
-            )}
-          </div>
+              {localStorage.getItem(article_id) ? (
+                <button
+                  className="SingleArticle__button--voted-up SingleArticle__button"
+                  onClick={() => updateVotes(-1)}
+                >
+                  <i className="fa-solid fa-thumbs-up"></i>
+                  <p>
+                    <b>
+                      REMOVE<br></br> UPVOTE
+                    </b>
+                  </p>
+                </button>
+              ) : (
+                <button
+                  className="SingleArticle__button--no-vote SingleArticle__button"
+                  onClick={() => updateVotes(1)}
+                >
+                  <i className="fa-solid fa-thumbs-up"></i>
+                  <p>
+                    <b>UPVOTE </b>
+                  </p>
+                </button>
+              )}
+            </div>
           </main>
-          
 
-          <Comments article_id={article_id} />
+          <Comments article_id={article_id} loggedInUser={props.loggedInUser} />
         </section>
       )}
     </div>

@@ -14,7 +14,7 @@ export const getArticles = (topic, selectedSortBy, selectedOrder) => {
       params: {
         topic: topic,
         sort_by: selectedSortBy,
-        order: selectedOrder
+        order: selectedOrder,
       },
     })
     .then((res) => {
@@ -37,16 +37,12 @@ export const getArticleComments = (article_id) => {
   });
 };
 
-
-
-
-  export const voteOnArticle = (article_id, body) => {
-    return newsAPI.patch(`/articles/${article_id}`, body).then((res) => {
-      const response = res.data.updatedArticle;
-      return response;
-    })
-  }
-
+export const voteOnArticle = (article_id, body) => {
+  return newsAPI.patch(`/articles/${article_id}`, body).then((res) => {
+    const response = res.data.updatedArticle;
+    return response;
+  });
+};
 
 export const postComment = (article_id, finalisedComment) => {
   const commentObject = {
@@ -62,3 +58,11 @@ export const postComment = (article_id, finalisedComment) => {
     });
 };
 
+export const deleteComment = (comment_id) => {
+  return newsAPI
+    .delete(`/comments/${comment_id}`)
+    .then((res) => {
+      // const commentInserted = res.data.commentInserted;
+      // return commentInserted;
+    });
+};
