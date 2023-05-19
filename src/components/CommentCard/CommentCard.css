@@ -6,6 +6,7 @@
   border: var(--black);
   border-style: solid;
   width: 100%;
+  /* opacity: 50%; */
 
   /* position: relative;
   min-height: 200px; */
@@ -23,6 +24,16 @@
     "comment-author"
     "comment-details"
     "comment-button";
+
+  pointer-events: none;
+}
+
+.CommentCard__div:hover {
+  background-color: var(--red);
+}
+
+.CommentCard__button--remove-comment {
+  pointer-events: auto;
 }
 
 .CommentCard__div > *:not(:first-child) {

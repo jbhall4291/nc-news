@@ -62,8 +62,6 @@ const CommentCard = ({ comment, comments, setComments, loggedInUser }) => {
             className="CommentCard__button--remove-comment"
             onClick={() => removeComment(comment.comment_id)}
           >
-            {/* <i className="fa-solid fa-thumbs-up"></i> */}
-            {/* <p>{isRemovingComment ? <b>REMOVING...</b> : <b>REMOVE</b>}</p> */}
             <p>
               <b>{removeCommentButtonText}</b>
             </p>
