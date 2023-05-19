@@ -5,7 +5,9 @@ import { getArticleComments } from "../../utils/api";
 import CommentCard from "../CommentCard/CommentCard";
 import CommentAdder from "../CommentAdder/CommentAdder";
 import ActivityIndicator from "../ActivityIndicator/ActivityIndicator";
-const Comments = () => {
+
+const Comments = (props) => {
+  
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
   
@@ -36,6 +38,7 @@ const Comments = () => {
                   key={comment.comment_id}
                   comment={comment}
                   setComments={setComments}
+                  loggedInUser={props.loggedInUser}
                 />
               );
             })}

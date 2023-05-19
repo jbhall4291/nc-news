@@ -6,6 +6,43 @@
   border: var(--black);
   border-style: solid;
   width: 100%;
+
+  /* position: relative;
+  min-height: 200px; */
+}
+
+.CommentCard__div {
+  display: grid;
+  /* align-content: flex-end; */
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 46px;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "comment-body"
+    "comment-author"
+    "comment-details"
+    "comment-button";
+}
+
+.CommentCard__div > *:not(:first-child) {
+  margin-top: auto;
+}
+
+.comment-body {
+  grid-area: comment-body;
+}
+
+.comment-author {
+  grid-area: comment-author;
+}
+
+.comment-details {
+  grid-area: comment-details;
+}
+
+.comment-button {
+  grid-area: comment-button;
 }
 
 .CommentCard__p--posted {
@@ -22,6 +59,39 @@
   .CommentCard__div {
     width: 25%;
   }
+}
+
+.CommentCard__button--remove-comment {
+  /* position: absolute; */
+  bottom: 0;
+  margin: auto;
+  width: 160px;
+  height: 40px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border-color: var(--black);
+  border-style: solid;
+  border-width: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  color: var(--green);
+}
+
+.CommentCard__button--remove-comment i {
+  margin-right: auto;
+  margin-left: 10px;
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.CommentCard__button--remove-comment p {
+  /* margin-right: auto; */
+  font-size: 1rem;
+  color: var(--black);
+  display: inline-block;
 }
 
 .CommentCard__div--details_area {
