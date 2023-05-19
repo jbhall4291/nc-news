@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { convertTimeAndDate } from "../../utils/functions";
 import "./CommentCard.css";
 import { Quotes } from "phosphor-react";
 import { deleteComment } from "../../utils/api";
 
-const CommentCard = ({ comment, loggedInUser }) => {
+const CommentCard = ({ comment, comments, setComments, loggedInUser }) => {
+  const [removeCommentButtonText, setRemoveCommentButtonText] =
+    useState("REMOVE");
+
+  const removeComment = (comment_id) => {
+    setRemoveCommentButtonText("REMOVING...");
+    deleteComment(comment_id)
+      .then(() => {
+        const updatedComments = comments.filter(
+          (comment) => comment.comment_id !== comment_id
+        );
+        setComments(updatedComments);
+      })
+      .catch((error) => {
+        setRemoveCommentButtonText(error.message);
+      });
+  };
+
   return (
     <div className="CommentCard__div">
       <div className="comment-body">
@@ -43,11 +60,12 @@ const CommentCard = ({ comment, loggedInUser }) => {
         {loggedInUser === comment.author && (
           <button
             className="CommentCard__button--remove-comment"
-            onClick={() => deleteComment(comment.comment_id)}
+            onClick={() => removeComment(comment.comment_id)}
           >
             {/* <i className="fa-solid fa-thumbs-up"></i> */}
+            {/* <p>{isRemovingComment ? <b>REMOVING...</b> : <b>REMOVE</b>}</p> */}
             <p>
-              <b>REMOVE</b>
+              <b>{removeCommentButtonText}</b>
             </p>
           </button>
         )}
