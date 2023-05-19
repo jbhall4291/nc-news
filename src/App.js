@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import SingleArticle from "./components/SingleArticle/SingleArticle";
 
 function App() {
-  const [loggedInUser, SetLoggedInUser] = useState("cooljmessy");
+  const [loggedInUser] = useState("cooljmessy");
 
   return (
     <div className="App">
