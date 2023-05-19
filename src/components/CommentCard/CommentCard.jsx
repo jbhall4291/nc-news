@@ -6,14 +6,14 @@ import { Quotes } from "phosphor-react";
 const CommentCard = ({ comment, loggedInUser }) => {
   return (
     <div className="CommentCard__div">
-      <div class="comment-body">
+      <div className="comment-body">
         <Quotes size={20} />
         <b>{comment.body}</b>
         <Quotes size={20} />
       </div>
 
-      <div class="comment-details">
-        <div class="comment-author">
+      <div className="comment-details">
+        <div className="comment-author">
           {" "}
           <p>
             <em>by {comment.author}</em>
@@ -38,7 +38,7 @@ const CommentCard = ({ comment, loggedInUser }) => {
           </div>
         </div>
       </div>
-      <div class="comment-button">
+      <div className="comment-button">
         {loggedInUser === comment.author && (
           <button
             className="CommentCard__button--remove-comment"
