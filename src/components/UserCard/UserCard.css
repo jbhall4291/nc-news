@@ -1,14 +1,65 @@
-.UserCard__div {
-    background-color: var(--white);
+.UserCard__li {
+    
+    background-color: var(--yellow);
     width: 300px;
     height: 300px;
+
+    padding: 10px;
+    color: var(--black);
+    border-radius: 0.5rem;
+    border: var(--black);
+    border-style: solid;
+    
+
+    text-decoration: none;
 }
 
-.UserCard__div p {
-    background-color: red;
+.UserCard__li p {
+    
 }
 
-.UserCard__div img {
-    width: 200px;
-    height: 200px;
+.UserCard__li img {
+    width: 100px;
+    height: 100px;
+    background-color: white;
 }
+
+.UserCard__button {
+    margin: 1rem auto;
+    width: 160px;
+    height: 60px;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border-color: var(--black);
+    border-style: solid;
+    border-width: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--green);
+  }
+  
+.UserCard__button i {
+    margin-right: auto;
+    margin-left: 10px;
+    font-size: 2rem;
+    color: var(--black);
+  }
+  
+  .UserCard__button p {
+    margin-right: auto;
+    font-size: 1rem;
+    color: var(--black);
+    display: inline-block;
+  }
+  
+  .UserCard__button--no {
+    background-color: var(--green);
+  }
+  
+  .UserCard__button--yes {
+    background-color: var(--red);
+    color: var(--green);
+  }
+  

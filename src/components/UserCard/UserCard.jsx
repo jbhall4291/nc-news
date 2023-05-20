@@ -3,14 +3,19 @@ import "./UserCard.css";
 
 const UserCard = ({ user, loggedInUser, setLoggedInUser }) => {
   return (
-    <div className="UserCard__div">
+    <li className="UserCard__li">
       <p>{user.username}</p>
       <img src={user.avatar_url} alt={user.username}></img>
       <p>{user.name}</p>
-      <button onClick={() => setLoggedInUser(user.username)}>
-        click to log in
+      <button
+        className="UserCard__button"
+        onClick={() => setLoggedInUser(user.username)}
+      >
+        {loggedInUser === user.username
+          ? `signed in as ${user.username}`
+          : `sign in as ${user.username}`}
       </button>
-    </div>
+    </li>
   );
 };
 

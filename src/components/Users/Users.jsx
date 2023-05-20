@@ -29,7 +29,7 @@ const Users = (props) => {
         </>
       ) : (
         <>
-          <ul>
+          <ul className="Users__ul">
             {allUsers.map((user) => {
               return (
                 <UserCard
