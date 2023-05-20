@@ -13,6 +13,11 @@ const Header = () => {
       <h1>NewsBuzz</h1>
       <nav>
         <h1 className="header__h1--in-navbar">NewsBuzz</h1>
+
+        <Link to="/users" onClick={() => handleTopicClick("allTopics")}>
+          USER
+        </Link>
+
         <Link
           to="/"
           onClick={() => handleTopicClick("allTopics")}

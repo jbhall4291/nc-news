@@ -1,0 +1,14 @@
+.UserCard__div {
+    background-color: var(--white);
+    width: 300px;
+    height: 300px;
+}
+
+.UserCard__div p {
+    background-color: red;
+}
+
+.UserCard__div img {
+    width: 200px;
+    height: 200px;
+}

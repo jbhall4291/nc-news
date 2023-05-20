@@ -31,10 +31,10 @@ const Articles = () => {
 
   if (isLoading)
     return (
-      <section className="Articles__section--loading">
+      <>
         <p>loading articles, please wait...</p>
         <ActivityIndicator />
-      </section>
+        </>
     );
   if (err)
     return (

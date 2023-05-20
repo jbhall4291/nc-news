@@ -44,10 +44,11 @@ export const voteOnArticle = (article_id, body) => {
   });
 };
 
-export const postComment = (article_id, finalisedComment) => {
+export const postComment = (article_id, finalisedComment, loggedInUser) => {
+  
   const commentObject = {
     //need to hardcode an existing user in db
-    username: "cooljmessy",
+    username: loggedInUser,
     body: finalisedComment,
   };
   return newsAPI
@@ -65,4 +66,11 @@ export const deleteComment = (comment_id) => {
       // const commentInserted = res.data.commentInserted;
       // return commentInserted;
     });
+};
+
+export const getAllUsers = (article_id) => {
+  return newsAPI.get(`/users`).then((res) => {
+    const allUsers = res.data.allUsers;
+    return allUsers;
+  });
 };

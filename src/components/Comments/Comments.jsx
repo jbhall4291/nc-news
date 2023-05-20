@@ -23,13 +23,17 @@ const Comments = (props) => {
   return (
     <div className="Comments__div">
       {isLoading ? (
-        <section className="Comments__section--loading">
+        <>
           <p>loading comments, please wait...</p>
           <ActivityIndicator />
-        </section>
+        </>
       ) : (
         <>
-          <CommentAdder setComments={setComments} article_id={article_id} />
+          <CommentAdder
+            setComments={setComments}
+            article_id={article_id}
+            loggedInUser={props.loggedInUser}
+          />
           <ul className="Comments__ul">
             {comments.map((comment) => {
               return (
