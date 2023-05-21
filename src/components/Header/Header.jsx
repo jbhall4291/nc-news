@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 import "./Header.css";
 import { Link } from "react-router-dom";
@@ -11,13 +12,16 @@ const Header = () => {
   return (
     <header>
       <h1>NewsBuzz</h1>
+
+      <Link to="/users">
+        <i className="user fa-solid fa-user"></i>
+      </Link>
+
+      <Link to="/users">
+        <i className="add-article fa-solid fa-plus"></i>
+      </Link>
+
       <nav>
-        <h1 className="header__h1--in-navbar">NewsBuzz</h1>
-
-        <Link to="/users" onClick={() => handleTopicClick("allTopics")}>
-          USER
-        </Link>
-
         <Link
           to="/"
           onClick={() => handleTopicClick("allTopics")}
