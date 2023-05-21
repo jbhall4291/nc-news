@@ -21,9 +21,11 @@ const Header = () => {
         </Link>
       </h1>
 
-      <Link to="/users">
-        <i className="user fa-solid fa-user"></i>
-      </Link>
+      <div className="user-area">
+        <Link to="/users">
+          <i className="user fa-solid fa-user"></i>
+        </Link>
+      </div>
 
       {/* commented out until functionality for adding an article exists! */}
       {/* <Link to="/addArticle">
