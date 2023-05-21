@@ -1,7 +1,7 @@
 header {
   display: grid;
   grid-template-columns: 8fr 0.5fr 0.5fr;
-  align-items: center;
+  
   justify-content: space-around;
   grid-template-rows: auto auto;
   grid-auto-flow: row;
@@ -15,7 +15,8 @@ header {
   padding: 0 40px 6px 40px;
   background-color: var(--yellow);
   z-index: 1;
-  align-items: stretch;
+  align-items: center;
+  align-content: center;
 }
 
 header h1 {
