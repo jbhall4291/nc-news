@@ -11,15 +11,21 @@ const Header = () => {
   }
   return (
     <header>
-      <Link className="no-underline" to="/" onClick={() => handleTopicClick("allTopics")}>
-        <h1>NewsBuzz</h1>
-      </Link>
+      <h1>
+        <Link
+          className="no-underline"
+          to="/"
+          onClick={() => handleTopicClick("allTopics")}
+        >
+          NewsBuzz
+        </Link>
+      </h1>
 
       <Link to="/users">
         <i className="user fa-solid fa-user"></i>
       </Link>
 
-{/* commented out until functionality for adding an article exists! */}
+      {/* commented out until functionality for adding an article exists! */}
       {/* <Link to="/addArticle">
         <i className="add-article fa-solid fa-plus"></i>
       </Link> */}
