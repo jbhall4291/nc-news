@@ -11,7 +11,9 @@ const Header = () => {
   }
   return (
     <header>
-      <h1>NewsBuzz</h1>
+      <Link className="no-underline" to="/" onClick={() => handleTopicClick("allTopics")}>
+        <h1>NewsBuzz</h1>
+      </Link>
 
       <Link to="/users">
         <i className="user fa-solid fa-user"></i>
