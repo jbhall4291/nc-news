@@ -24,7 +24,7 @@ const Users = (props) => {
     <div>
       {isLoading ? (
         <>
-          <p>loading article, please wait...</p>
+          <p>loading users, please wait...</p>
           <ActivityIndicator />
         </>
       ) : (
