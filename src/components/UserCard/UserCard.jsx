@@ -16,7 +16,7 @@ const UserCard = ({ user, loggedInUser, setLoggedInUser }) => {
         className="UserCard__button"
         onClick={() => setLoggedInUser(user.username)}
       >
-        <b>{loggedInUser === user.username ? `USER SIGNED IN` : `SIGN IN`}</b>
+        <b>{loggedInUser === user.username ? `SIGNED IN` : `SIGN IN`}</b>
       </button>
     </li>
   );
