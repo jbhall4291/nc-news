@@ -1,0 +1,67 @@
+.UserCard__li {
+  background-color: var(--yellow);
+  padding: 10px;
+  color: var(--black);
+  border-radius: 0.5rem;
+  border: var(--black);
+  border-style: solid;
+  text-decoration: none;
+  opacity: 50%;
+}
+
+.UserCard__li--logged-in-user {
+  opacity: 100%;
+}
+
+.UserCard__li img {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50rem;
+  border: var(--black);
+  border-style: solid;
+}
+
+.UserCard__button {
+  margin: auto;
+  width: 160px;
+  height: 40px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border-color: var(--black);
+  border-style: solid;
+  border-width: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green);
+}
+
+.UserCard__li p {
+  margin: 5px 0;
+  padding: 0;
+}
+
+@media (max-width: 700px) {
+  .UserCard__li {
+    width: 100%;
+  }
+  .UserCard__li img {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50rem;
+    border: var(--black);
+    border-style: solid;
+  }
+  .UserCard__li p {
+    margin: 5px 0;
+    padding: 0;
+  }
+}
+
+#button:hover {
+  background-color: var(--green);
+  opacity: 100%;
+}

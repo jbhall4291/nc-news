@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 import "./Header.css";
 import { Link } from "react-router-dom";
@@ -10,9 +11,20 @@ const Header = () => {
   }
   return (
     <header>
-      <h1>NewsBuzz</h1>
+      <Link className="no-underline" to="/" onClick={() => handleTopicClick("allTopics")}>
+        <h1>NewsBuzz</h1>
+      </Link>
+
+      <Link to="/users">
+        <i className="user fa-solid fa-user"></i>
+      </Link>
+
+{/* commented out until functionality for adding an article exists! */}
+      {/* <Link to="/addArticle">
+        <i className="add-article fa-solid fa-plus"></i>
+      </Link> */}
+
       <nav>
-        <h1 className="header__h1--in-navbar">NewsBuzz</h1>
         <Link
           to="/"
           onClick={() => handleTopicClick("allTopics")}

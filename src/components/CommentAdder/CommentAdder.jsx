@@ -3,7 +3,9 @@ import { useState } from "react";
 import "./CommentAdder.css";
 import { postComment } from "../../utils/api";
 
-const CommentAdder = ({ article_id, setComments }) => {
+const CommentAdder = ({ article_id, setComments, loggedInUser }) => {
+
+  
   const [commentText, setCommentText] = useState("");
 
   const [
@@ -19,7 +21,7 @@ const CommentAdder = ({ article_id, setComments }) => {
 
   const postAComment = () => {
     setIsPosting(true);
-    postComment(article_id, commentText)
+    postComment(article_id, commentText, loggedInUser)
       .then((addedComment) => {
         setLastSuccessfullySubmittedCommentText(commentText);
         setComments((currComments) => {
@@ -69,7 +71,12 @@ const CommentAdder = ({ article_id, setComments }) => {
           onChange={(event) => setCommentText(event.target.value)}
         />
 
-        <button className="CommentAdder__button" type="submit" id="button" disabled={isPosting}>
+        <button
+          className="CommentAdder__button"
+          type="submit"
+          id="button"
+          disabled={isPosting}
+        >
           <b>SUBMIT</b>
         </button>
 

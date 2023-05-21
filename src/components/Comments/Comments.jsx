@@ -22,27 +22,36 @@ const Comments = (props) => {
 
   return (
     <div className="Comments__div">
+      <CommentAdder
+        setComments={setComments}
+        article_id={article_id}
+        loggedInUser={props.loggedInUser}
+      />
+
       {isLoading ? (
-        <section className="Comments__section--loading">
+        <>
           <p>loading comments, please wait...</p>
           <ActivityIndicator />
-        </section>
+        </>
       ) : (
         <>
-          <CommentAdder setComments={setComments} article_id={article_id} />
-          <ul className="Comments__ul">
-            {comments.map((comment) => {
-              return (
-                <CommentCard
-                  key={comment.comment_id}
-                  comment={comment}
-                  comments={comments}
-                  setComments={setComments}
-                  loggedInUser={props.loggedInUser}
-                />
-              );
-            })}
-          </ul>
+          {comments.length === 0 ? (
+            <p>no comments yet!</p>
+          ) : (
+            <ul className="Comments__ul">
+              {comments.map((comment) => {
+                return (
+                  <CommentCard
+                    key={comment.comment_id}
+                    comment={comment}
+                    comments={comments}
+                    setComments={setComments}
+                    loggedInUser={props.loggedInUser}
+                  />
+                );
+              })}
+            </ul>
+          )}{" "}
         </>
       )}
     </div>
