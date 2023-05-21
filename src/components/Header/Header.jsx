@@ -19,9 +19,10 @@ const Header = () => {
         <i className="user fa-solid fa-user"></i>
       </Link>
 
-      <Link to="/users">
+{/* commented out until functionality for adding an article exists! */}
+      {/* <Link to="/addArticle">
         <i className="add-article fa-solid fa-plus"></i>
-      </Link>
+      </Link> */}
 
       <nav>
         <Link
