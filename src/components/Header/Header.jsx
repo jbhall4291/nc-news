@@ -20,18 +20,15 @@ const Header = () => {
           NewsBuzz
         </Link>
       </h1>
-
       <div className="user-area">
         <Link to="/users">
           <i className="user fa-solid fa-user"></i>
         </Link>
       </div>
-
-      {/* commented out until functionality for adding an article exists! */}
-      {/* <Link to="/addArticle">
+  
+      <Link to="/addArticle">
         <i className="add-article fa-solid fa-plus"></i>
-      </Link> */}
-
+      </Link>
       <nav>
         <Link
           to="/"
