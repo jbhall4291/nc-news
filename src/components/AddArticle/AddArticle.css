@@ -1,39 +1,53 @@
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+.AddArticle {
+  width: 60%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+#author {
+  background-color: lightgrey;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  resize: none;
+  border-radius: 0.5rem;
+  border-color: var(--black);
+  border-style: solid;
+  border-width: 3px;
+}
+
+button {
+  background-color: var(--green);
+  color: var(--black);
+  padding: 10px 20px;
+  margin: 1rem auto;
+  width: 160px;
+  height: 60px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border-color: var(--black);
+  border-style: solid;
+  border-width: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: var(--green);
+}

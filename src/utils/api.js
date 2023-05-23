@@ -99,4 +99,9 @@ export const postArticle = (
   });
 };
 
-// app.post("/api/articles", postArticle);
+export const getAllTopics = () => {
+  return newsAPI.get(`/topics`).then((res) => {
+    const allTopics = res.data.allTopics;
+    return allTopics;
+  });
+};

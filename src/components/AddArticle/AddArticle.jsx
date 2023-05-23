@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AddArticle.css";
 import { postArticle } from "../../utils/api";
+import { getAllTopics } from "../../utils/api";
 
 function AddArticle(props) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [topic, setTopic] = useState("");
-  const [topics] = useState(["topic1", "topic2", "topic3"]);
+  const [topics, setTopics] = useState([]);
   const [articleImgUrl, setArticleImgUrl] = useState("");
 
   const postAnArticle = () => {
@@ -25,8 +26,22 @@ function AddArticle(props) {
     postAnArticle();
   };
 
+  console.log(topics);
+
+  useEffect(() => {
+    // Fetch the topics from the API and set them in the state
+    getAllTopics()
+      .then((data) => {
+        setTopics(data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Error:", error);
+      });
+  }, []);
+
   return (
-    <div className="container">
+    <section className="AddArticle">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="author">Author:</label>
@@ -67,8 +82,8 @@ function AddArticle(props) {
           >
             <option value="">Select a topic</option>
             {topics.map((topic) => (
-              <option key={topic} value={topic}>
-                {topic}
+              <option key={topic.slug} value={topic.slug}>
+                {topic.slug}
               </option>
             ))}
           </select>
@@ -83,9 +98,11 @@ function AddArticle(props) {
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">
+          <b>SUBMIT</b>
+        </button>
       </form>
-    </div>
+    </section>
   );
 }
 
