@@ -27,7 +27,6 @@ function App() {
           element={
             <AddArticle
               loggedInUser={loggedInUser}
-              setLoggedInUser={setLoggedInUser}
             />
           }
         />

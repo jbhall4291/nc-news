@@ -4,8 +4,6 @@ import "./CommentAdder.css";
 import { postComment } from "../../utils/api";
 
 const CommentAdder = ({ article_id, setComments, loggedInUser }) => {
-
-  
   const [commentText, setCommentText] = useState("");
 
   const [
