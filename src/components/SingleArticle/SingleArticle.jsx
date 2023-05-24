@@ -5,10 +5,15 @@ import Comments from "../Comments/Comments";
 import "./SingleArticle.css";
 import { convertTimeAndDate } from "../../utils/functions";
 import ActivityIndicator from "../ActivityIndicator/ActivityIndicator";
+import { deleteArticle } from "../../utils/api";
+
+import { useNavigate } from "react-router-dom";
 
 import React from "react";
 
 const SingleArticle = (props) => {
+  const navigate = useNavigate();
+
   const { article_id } = useParams();
 
   const [articleData, setArticleData] = useState({});
@@ -18,7 +23,9 @@ const SingleArticle = (props) => {
   const [votes, setVotes] = useState(0);
   const [isVotingError, setIsVotingError] = useState(false);
 
-  
+  const [removeArticleButtonText, setRemoveArticleButtonText] =
+    useState("REMOVE ARTICLE");
+  const [isRemovingArticle, setIsRemovingArticle] = useState(false);
 
   useEffect(() => {
     setErr(false);
@@ -66,6 +73,22 @@ const SingleArticle = (props) => {
         localStorage.removeItem(article_id, "userHasVoted");
       });
     }
+  };
+
+  const removeArticle = () => {
+    console.log(props.loggedInUser + articleData.author);
+    setIsRemovingArticle(true);
+    setRemoveArticleButtonText("REMOVING...");
+    deleteArticle(article_id)
+      .then(() => {
+        setRemoveArticleButtonText("REMOVED! please refresh page");
+        navigate("/articles");
+        
+      })
+      .catch((error) => {
+        setRemoveArticleButtonText(error.message + `\n (try again)`);
+        setIsRemovingArticle(false);
+      });
   };
 
   if (err) return <p>Article Not Found!</p>;
@@ -140,6 +163,21 @@ const SingleArticle = (props) => {
                     <b>UPVOTE </b>
                   </p>
                 </button>
+              )}
+
+              {props.loggedInUser === articleData.author ? (
+                <button
+                  className="SingleArticle__button--remove-article"
+                  disabled={isRemovingArticle}
+                  onClick={() => removeArticle()}
+                >
+                  <i className=""></i>
+                  <p>
+                    <b>{removeArticleButtonText}</b>
+                  </p>
+                </button>
+              ) : (
+                <div></div>
               )}
             </div>
           </main>

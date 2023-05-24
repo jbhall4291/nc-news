@@ -110,3 +110,17 @@
   background-color: var(--red);
   color: var(--green);
 }
+
+.SingleArticle__button--remove-article {
+  background-color: red;
+  opacity: 60%;
+}
+
+.SingleArticle__button--remove-article:hover {
+  opacity: 100%;
+  background-color: red;
+}
+
+/* .SingleArticle__main > *:not(:first-child) {
+  margin-top: auto;
+} */

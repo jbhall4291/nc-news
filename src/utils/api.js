@@ -32,8 +32,6 @@ export const getArticleById = (article_id) => {
 
 export const getArticleComments = (article_id) => {
   return newsAPI.get(`/articles/${article_id}/comments`).then((res) => {
-    
-
     const comments = res.data.comments;
     return comments;
   });
@@ -80,8 +78,6 @@ export const postArticle = (
   topic,
   article_img_url
 ) => {
-  
-
   const articleObject = {
     author: loggedInUser,
     title: title,
@@ -90,10 +86,7 @@ export const postArticle = (
     article_img_url: article_img_url,
   };
 
-  
-
   return newsAPI.post(`/articles/`, articleObject).then((res) => {
-    
     const postedArticle = res.data.postedArticle;
     return postedArticle;
   });
@@ -104,4 +97,8 @@ export const getAllTopics = () => {
     const allTopics = res.data.allTopics;
     return allTopics;
   });
+};
+
+export const deleteArticle = (article_id) => {
+  return newsAPI.delete(`/articles/${article_id}`);
 };
