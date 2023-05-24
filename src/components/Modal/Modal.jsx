@@ -31,13 +31,12 @@ export default function Modal() {
             </p>
             <ul>
               <li>
-                🔍 View all articles, view articles by topic, view a single
-                article
+                🔍 View all articles, or view articles by topic
               </li>
+              <li>📬 Post a new article & delete an article</li>
               <li>❔ Filter, sort and/or order articles</li>
-              <li>📬 Post a new article, delete an article</li>
+              <li>💬 View, post & delete article comments</li>
               <li>👍 Upvote an article</li>
-              <li>💬 View, post & delete comments on an each article</li>
             </ul>
             <p>
               You are currently logged in as user Peter Messy, with the username
@@ -50,7 +49,7 @@ export default function Modal() {
               Have fun, and check out my other projects at <a href="https://johnny-hall.dev">johnny-hall.dev</a>
             </p>
             <button className="close-modal" onClick={toggleModal}>
-            ❌
+            <b>CLOSE</b>
             </button>
           </div>
         </div>
