@@ -35,6 +35,7 @@ function AddArticle(props) {
         setSubmissionFeedbackMessage(
           `ARTICLE NOT POSTED, TRY AGAIN! (${error.message})`
         );
+        setIsPosting(false);
       });
   };
 
