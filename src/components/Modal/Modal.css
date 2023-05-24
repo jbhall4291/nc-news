@@ -45,6 +45,10 @@ body.active-modal {
   background-color: var(--red);
 }
 
+.modal-content ul {
+  padding-left: 0;
+}
+
 .modal-content li {
   /* background-color: blueviolet; */
   list-style: none;
