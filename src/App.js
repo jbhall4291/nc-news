@@ -6,12 +6,14 @@ import Header from "./components/Header/Header";
 import SingleArticle from "./components/SingleArticle/SingleArticle";
 import Users from "./components/Users/Users";
 import AddArticle from "./components/AddArticle/AddArticle";
+import Modal from "./components/Modal/Modal";
 function App() {
   const [loggedInUser, setLoggedInUser] = useState("cooljmessy");
 
   return (
     <div className="App">
       <Header />
+      <Modal />
       <Routes>
         <Route
           path="/users"
