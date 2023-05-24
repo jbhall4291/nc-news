@@ -43,7 +43,7 @@ body.active-modal {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
-  background-color: var(--red);
+  background-color: var(--white);
 }
 
 .modal-content ul {

@@ -50,7 +50,7 @@ export default function Modal() {
               Have fun, and check out my other projects at <a href="https://johnny-hall.dev">johnny-hall.dev</a>
             </p>
             <button className="close-modal" onClick={toggleModal}>
-              X
+            ❌
             </button>
           </div>
         </div>
