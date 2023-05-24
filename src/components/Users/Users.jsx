@@ -16,7 +16,7 @@ const Users = (props) => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        
       });
   }, []);
 

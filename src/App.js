@@ -5,7 +5,7 @@ import Articles from "./components/Articles/Articles";
 import Header from "./components/Header/Header";
 import SingleArticle from "./components/SingleArticle/SingleArticle";
 import Users from "./components/Users/Users";
-
+import AddArticle from "./components/AddArticle/AddArticle";
 function App() {
   const [loggedInUser, setLoggedInUser] = useState("cooljmessy");
 
@@ -13,7 +13,23 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/users" element={<Users loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
+        <Route
+          path="/users"
+          element={
+            <Users
+              loggedInUser={loggedInUser}
+              setLoggedInUser={setLoggedInUser}
+            />
+          }
+        />
+        <Route
+          path="/addArticle"
+          element={
+            <AddArticle
+              loggedInUser={loggedInUser}
+            />
+          }
+        />
         <Route path="/" element={<Articles />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/topics/:topic" element={<Articles />} />

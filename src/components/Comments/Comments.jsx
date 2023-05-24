@@ -14,11 +14,16 @@ const Comments = (props) => {
 
   useEffect(() => {
     setIsLoading(true);
+    
     getArticleComments(article_id).then((commentsData) => {
+    
       setComments(commentsData);
+
       setIsLoading(false);
     });
   }, [article_id]);
+
+  
 
   return (
     <div className="Comments__div">

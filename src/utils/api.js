@@ -32,6 +32,8 @@ export const getArticleById = (article_id) => {
 
 export const getArticleComments = (article_id) => {
   return newsAPI.get(`/articles/${article_id}/comments`).then((res) => {
+    
+
     const comments = res.data.comments;
     return comments;
   });
@@ -45,9 +47,7 @@ export const voteOnArticle = (article_id, body) => {
 };
 
 export const postComment = (article_id, finalisedComment, loggedInUser) => {
-  
   const commentObject = {
-    //need to hardcode an existing user in db
     username: loggedInUser,
     body: finalisedComment,
   };
@@ -60,17 +60,48 @@ export const postComment = (article_id, finalisedComment, loggedInUser) => {
 };
 
 export const deleteComment = (comment_id) => {
-  return newsAPI
-    .delete(`/comments/${comment_id}`)
-    .then((res) => {
-      // const commentInserted = res.data.commentInserted;
-      // return commentInserted;
-    });
+  return newsAPI.delete(`/comments/${comment_id}`).then((res) => {
+    // const commentInserted = res.data.commentInserted;
+    // return commentInserted;
+  });
 };
 
 export const getAllUsers = (article_id) => {
   return newsAPI.get(`/users`).then((res) => {
     const allUsers = res.data.allUsers;
     return allUsers;
+  });
+};
+
+export const postArticle = (
+  loggedInUser,
+  title,
+  body,
+  topic,
+  article_img_url
+) => {
+  
+
+  const articleObject = {
+    author: loggedInUser,
+    title: title,
+    body: body,
+    topic: topic,
+    article_img_url: article_img_url,
+  };
+
+  
+
+  return newsAPI.post(`/articles/`, articleObject).then((res) => {
+    
+    const postedArticle = res.data.postedArticle;
+    return postedArticle;
+  });
+};
+
+export const getAllTopics = () => {
+  return newsAPI.get(`/topics`).then((res) => {
+    const allTopics = res.data.allTopics;
+    return allTopics;
   });
 };
