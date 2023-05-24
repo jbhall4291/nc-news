@@ -10,23 +10,42 @@ function AddArticle(props) {
   const [topics, setTopics] = useState([]);
   const [articleImgUrl, setArticleImgUrl] = useState("");
 
+  const [isSubmissionFeedback, setSubmissionFeedback] = useState(false);
+  const [submissionFeedbackMessage, setSubmissionFeedbackMessage] =
+    useState("");
+
+  const [isPosting, setIsPosting] = useState(false);
+
   const postAnArticle = () => {
+    setIsPosting(true);
+
     postArticle(props.loggedInUser, title, body, topic, articleImgUrl)
       .then((result) => {
-        console.log("success!!!!");
-        console.log(result);
+        setSubmissionFeedbackMessage("ARTICLE POSTED, THANKS!");
+        setTitle("");
+        setBody("");
+        setTopic("");
+        setArticleImgUrl("");
+        setIsPosting(false);
+        
       })
       .catch((error) => {
-        console.log(error);
+        
+        setSubmissionFeedback(true);
+        setSubmissionFeedbackMessage(
+          `ARTICLE NOT POSTED, TRY AGAIN! (${error.message})`
+        );
       });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmissionFeedback(true);
+    setSubmissionFeedbackMessage("ADDING ARTICLE...");
     postAnArticle();
   };
 
-  console.log(topics);
+  
 
   useEffect(() => {
     // Fetch the topics from the API and set them in the state
@@ -98,10 +117,19 @@ function AddArticle(props) {
           />
         </div>
 
-        <button type="submit">
+        <button type="submit" disabled={isPosting}>
           <b>SUBMIT</b>
         </button>
       </form>
+      <p
+          className={
+            isSubmissionFeedback
+              ? "feedback CommentAdder__p--feedback-visible"
+              : "feedback CommentAdder__p--feedback-hidden"
+          }
+        >
+          {submissionFeedbackMessage}
+        </p>
     </section>
   );
 }

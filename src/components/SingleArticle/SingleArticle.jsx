@@ -18,7 +18,7 @@ const SingleArticle = (props) => {
   const [votes, setVotes] = useState(0);
   const [isVotingError, setIsVotingError] = useState(false);
 
-  console.log(article_id)
+  
 
   useEffect(() => {
     setErr(false);
