@@ -38,6 +38,10 @@
   pointer-events: auto;
 }
 
+.CommentCard__button--remove-comment:hover {
+  background-color: var(--red);
+}
+
 .CommentCard__div > *:not(:first-child) {
   margin-top: auto;
 }

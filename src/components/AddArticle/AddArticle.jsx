@@ -61,11 +61,11 @@ function AddArticle(props) {
   }, []);
 
   return (
-    <section className="AddArticle">
+    <section className="AddArticle__section">
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="author">Author:</label>
-          <input
+        <div className="AddArticle__div--form-group">
+          <label className="AddArticle__div--form-group__label" htmlFor="author">Author:</label>
+          <input className="AddArticle__input"
             type="text"
             id="author"
             value={props.loggedInUser}
@@ -74,8 +74,8 @@ function AddArticle(props) {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="title">Title:</label>
-          <input
+          <label className="AddArticle__div--form-group__label" htmlFor="title">Title:</label>
+          <input className="AddArticle__input"
             type="text"
             id="title"
             value={title}
@@ -84,8 +84,8 @@ function AddArticle(props) {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="body">Body:</label>
-          <textarea
+          <label className="AddArticle__div--form-group__label" htmlFor="body">Body:</label>
+          <textarea className="AddArticle__textarea"
             id="body"
             value={body}
             onChange={(e) => setBody(e.target.value)}
@@ -93,8 +93,8 @@ function AddArticle(props) {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="topic">Topic:</label>
-          <select
+          <label className="AddArticle__div--form-group__label" htmlFor="topic">Topic:</label>
+          <select className="AddArticle__select"
             id="topic"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
@@ -109,8 +109,8 @@ function AddArticle(props) {
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="articleImgUrl">Article Image URL (optional):</label>
-          <input
+          <label className="AddArticle__div--form-group__label" htmlFor="articleImgUrl">Article Image URL (optional):</label>
+          <input className="AddArticle__input"
             type="text"
             id="articleImgUrl"
             value={articleImgUrl}
@@ -118,7 +118,7 @@ function AddArticle(props) {
           />
         </div>
 
-        <button type="submit" disabled={isPosting}>
+        <button className="AddArticle__button" type="submit" disabled={isPosting}>
           <b>SUBMIT</b>
         </button>
       </form>
