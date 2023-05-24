@@ -30,9 +30,7 @@ export default function Modal() {
               with the following features:
             </p>
             <ul>
-              <li>
-                🔍 View all articles, or view articles by topic
-              </li>
+              <li>🔍 View all articles, or view articles by topic</li>
               <li>📬 Post a new article & delete an article</li>
               <li>❔ Filter, sort and/or order articles</li>
               <li>💬 View, post & delete article comments</li>
@@ -46,10 +44,11 @@ export default function Modal() {
               profile icon on the navbar.
             </p>
             <p>
-              Have fun, and check out my other projects at <a href="https://johnny-hall.dev">johnny-hall.dev</a>
+              Enjoy, and check out my other projects at{" "}
+              <a href="https://johnny-hall.dev">johnny-hall.dev</a>
             </p>
             <button className="close-modal" onClick={toggleModal}>
-            <b>CLOSE</b>
+              <b>CLOSE</b>
             </button>
           </div>
         </div>

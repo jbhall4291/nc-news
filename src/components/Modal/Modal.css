@@ -48,6 +48,7 @@ body.active-modal {
   border-style: solid;
   border-color: var(--red);
   border-width: 3px;
+  color: var(--black);
 }
 
 .modal-content ul {
