@@ -102,3 +102,17 @@ export const getAllTopics = () => {
 export const deleteArticle = (article_id) => {
   return newsAPI.delete(`/articles/${article_id}`);
 };
+
+
+export const postTopic = (slug, description) => {
+  const topicObject = {
+    slug: slug,
+    description: description,
+  };
+  return newsAPI
+    .post(`/topics`, topicObject)
+    .then((res) => {
+      const topicInserted = res.data.topicInserted;
+      return topicInserted;
+    });
+};
