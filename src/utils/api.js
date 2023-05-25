@@ -65,6 +65,7 @@ export const deleteComment = (comment_id) => {
 };
 
 export const getAllUsers = (article_id) => {
+  
   return newsAPI.get(`/users`).then((res) => {
     const allUsers = res.data.allUsers;
     return allUsers;

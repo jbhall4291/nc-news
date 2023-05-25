@@ -57,7 +57,7 @@ const Header = () => {
   }`}
   onClick={() => handleTopicClick("allTopics")}
 >
-  ALL TOPICS
+  ALL ARTICLES
 </Link>
 {allTopics.map((topic) => {
   return (

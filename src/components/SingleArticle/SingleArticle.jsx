@@ -76,7 +76,6 @@ const SingleArticle = (props) => {
   };
 
   const removeArticle = () => {
-    console.log(props.loggedInUser + articleData.author);
     setIsRemovingArticle(true);
     setRemoveArticleButtonText("REMOVING...");
     deleteArticle(article_id)
