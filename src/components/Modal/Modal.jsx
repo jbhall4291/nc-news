@@ -37,12 +37,19 @@ export default function Modal() {
               <li>👍 Upvote an article</li>
             </ul>
             <p>
-              You are currently logged in as user Peter Messy, with the username
-              cooljmessy. Any posted articles/comments will be made under this
-              username, and you will only be able to delete articles/comments
-              authored by you. You can switch to another user by clicking the
-              profile icon on the navbar.
+              You are currently logged in as user 'Peter Messy'. Any posts will
+              be made with your username, and you can only delete
+              articles/comments authored by you. You can switch to another user
+              by clicking the profile icon on the navbar.
             </p>
+
+            <p>
+              <em>
+                Please bear in mind the backend is hosted on Render's free-tier,
+                so may take a few seconds to wake-up!
+              </em>
+            </p>
+
             <p>
               Enjoy, and check out my other projects at{" "}
               <a href="https://johnny-hall.dev">johnny-hall.dev</a>
