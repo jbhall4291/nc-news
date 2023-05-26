@@ -13,10 +13,7 @@ function AddArticle(props) {
   const [customTopicDescription, setCustomTopicDescription] =
     useState("no description");
 
-  // const handleTopicChange = (event) => {
-  //   const selectedTopic = event.target.value;
-  //   setTopic(selectedTopic);
-  // };
+
 
   const handleCustomTopicChange = (event) => {
     setCustomTopic(event.target.value);

@@ -43,14 +43,25 @@ function App() {
         />
         <Route
           path="/addArticle"
-          element={<AddArticle loggedInUser={loggedInUser} allTopics={allTopics} setAllTopics={setAllTopics} />}
+          element={
+            <AddArticle
+              loggedInUser={loggedInUser}
+              allTopics={allTopics}
+              setAllTopics={setAllTopics}
+            />
+          }
         />
         <Route path="/" element={<Articles />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/topics/:topic" element={<Articles />} />
         <Route
           path="/articles/:article_id"
-          element={<SingleArticle loggedInUser={loggedInUser} />}
+          element={
+            <SingleArticle
+              loggedInUser={loggedInUser}
+              setAllTopics={setAllTopics}
+            />
+          }
         />
         <Route path="/*" element={<p>404 page not found!</p>} />
       </Routes>
