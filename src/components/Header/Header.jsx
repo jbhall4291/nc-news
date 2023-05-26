@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
-import { getAllTopics } from "../../utils/api";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-
 const Header = (props) => {
   const [selectedTopic, setSelectedTopic] = useState("allTopics");
-  
+
   function handleTopicClick(topic) {
     setSelectedTopic(topic);
   }
 
-  
   return (
     <header>
       <h1>
@@ -35,47 +32,41 @@ const Header = (props) => {
       </Link>
 
       {props.topicsLoading ? (
-        <div className="Header__div--loading-topics">fetching topics, please wait</div>
+        <div className="Header__div--loading-topics">fetching topics...</div>
       ) : (
         <nav>
-{/* hardcode all topics, then map each topic */}
-<Link
-  to="/"
-  className={`Navbar__Link ${
-    selectedTopic === "allTopics"
-      ? "Navbar__Link--active"
-      : "Navbar__Link"
-  }`}
-  onClick={() => handleTopicClick("allTopics")}
->
-  ALL ARTICLES
-</Link>
-{props.allTopics.map((topic) => {
-  return (
-    <Link
-      key={topic.slug}
-      to={`/topics/${topic.slug}`}
-      className={`Navbar__Link ${
-        selectedTopic === topic.slug
-          ? "Navbar__Link--active"
-          : "Navbar__Link"
-      }`}
-      onClick={() => handleTopicClick(topic.slug)}
-    >
-      {topic.slug.toUpperCase()}
-    </Link>
-  );
-})}
-</nav>
-      
+          {/* hardcode all topics, then map each topic */}
+          <Link
+            to="/"
+            className={`Navbar__Link ${
+              selectedTopic === "allTopics"
+                ? "Navbar__Link--active"
+                : "Navbar__Link"
+            }`}
+            onClick={() => handleTopicClick("allTopics")}
+          >
+            ALL ARTICLES
+          </Link>
+          {props.allTopics.map((topic) => {
+            return (
+              <Link
+                key={topic.slug}
+                to={`/topics/${topic.slug}`}
+                className={`Navbar__Link ${
+                  selectedTopic === topic.slug
+                    ? "Navbar__Link--active"
+                    : "Navbar__Link"
+                }`}
+                onClick={() => handleTopicClick(topic.slug)}
+              >
+                {topic.slug.toUpperCase()}
+              </Link>
+            );
+          })}
+        </nav>
       )}
     </header>
   );
 };
 
 export default Header;
-
-
-
-
-

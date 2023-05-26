@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./AddArticle.css";
 import { postArticle } from "../../utils/api";
 import { postTopic, getAllTopics } from "../../utils/api";
@@ -10,13 +10,14 @@ function AddArticle(props) {
   const [topic, setTopic] = useState("");
 
   const [customTopic, setCustomTopic] = useState("");
-  const [customTopicDescription, setCustomTopicDescription] =
-    useState("no description");
-
-
+  const [customTopicDescription, setCustomTopicDescription] = useState("");
 
   const handleCustomTopicChange = (event) => {
     setCustomTopic(event.target.value);
+  };
+
+  const handleCustomTopicDescriptionChange = (event) => {
+    setCustomTopicDescription(event.target.value);
   };
 
   const [articleImgUrl, setArticleImgUrl] = useState("");
@@ -36,12 +37,14 @@ function AddArticle(props) {
       customTopic.toLowerCase() || topic,
       articleImgUrl
     )
-      .then((result) => {
+      .then(() => {
         setSubmissionFeedbackMessage("ARTICLE POSTED, THANKS!");
         setTitle("");
         setBody("");
         setTopic("");
         setArticleImgUrl("");
+        setCustomTopic("");
+        setCustomTopicDescription("");
         setIsPosting(false);
       })
       .catch((error) => {
@@ -81,18 +84,6 @@ function AddArticle(props) {
         });
     }
   };
-
-  // useEffect(() => {
-  //   // Fetch the topics from the API and set them in the state
-  //   getAllTopics()
-  //     .then((data) => {
-  //       setTopics(data);
-  //     })
-  //     .catch((error) => {
-  //       // Handle error
-  //       console.error("Error:", error);
-  //     });
-  // }, []);
 
   return (
     <section className="AddArticle__section">
@@ -149,23 +140,34 @@ function AddArticle(props) {
             onChange={(e) => setTopic(e.target.value)}
             required
           >
-            <option value="">Select a topic</option>
+            <option value="">Select A Topic</option>
             {props.allTopics.map((topic) => (
               <option key={topic.slug} value={topic.slug}>
                 {topic.slug}
               </option>
             ))}
-            <option value="custom">Enter a Custom Topic</option>
+            <option value="custom">---Create New---</option>
           </select>
 
           {topic === "custom" && (
-            <input
-              type="text"
-              value={customTopic}
-              onChange={handleCustomTopicChange}
-              placeholder="Enter a custom topic"
-              required
-            />
+            <>
+              <input
+                className="AddArticle__input"
+                type="text"
+                value={customTopic}
+                onChange={handleCustomTopicChange}
+                placeholder="Enter a custom topic"
+                required
+              />
+              <input
+                className="AddArticle__input"
+                type="text"
+                value={customTopicDescription}
+                onChange={handleCustomTopicDescriptionChange}
+                placeholder="Enter a custom topic description"
+                required
+              />
+            </>
           )}
         </div>
         <div className="form-group">
