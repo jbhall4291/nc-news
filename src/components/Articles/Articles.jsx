@@ -34,7 +34,7 @@ const Articles = () => {
       <>
         <p>loading articles, please wait...</p>
         <ActivityIndicator />
-        </>
+      </>
     );
   if (err)
     return (

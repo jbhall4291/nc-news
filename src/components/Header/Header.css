@@ -1,14 +1,13 @@
+
+
 header {
   display: grid;
   grid-template-columns: 8fr 0.5fr 0.5fr;
-  
+  grid-template-rows: auto auto; /* Adjusted row sizes */
   justify-content: space-around;
-  grid-template-rows: auto auto;
-  grid-auto-flow: row;
   grid-template-areas:
     "title user add-article"
-    "topics topics topics";
-
+    "topics topics topics"; 
   position: sticky;
   top: 0;
   left: 0;
@@ -19,9 +18,11 @@ header {
   align-content: center;
 }
 
+
+
 header h1 {
   grid-area: title;
-  
+
   color: var(--black);
   font-size: 5rem;
   margin: 0;
@@ -49,7 +50,7 @@ header h1 {
 
 header i {
   color: var(--black);
-  
+
   font-size: 2rem;
   /* margin: 0 0 0 30px; */
   padding: 5px;
@@ -67,16 +68,13 @@ header i {
 
 .user-area {
   grid-area: user;
-  
+
   text-align: right;
   align-self: center;
 }
 
 nav {
   grid-area: topics;
-}
-
-nav {
   background-color: var(--yellow);
   display: flex;
   justify-content: space-evenly;
@@ -85,11 +83,26 @@ nav {
 }
 
 @media (max-width: 430px) {
-  nav {
+  /* nav {
     gap: 0.05rem;
     justify-content: space-evenly;
     padding-bottom: 5px;
+  } */
+  nav {
+    grid-area: topics;
+    background-color: var(--yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.1rem;
   }
+  
+  nav > * {
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
 }
 
 .Navbar__Link {
@@ -133,4 +146,9 @@ nav {
 .Navbar__Link--active {
   background-color: var(--black);
   color: var(--neutral);
+}
+
+.Header__div--loading-topics {
+  
+  text-align: left;
 }

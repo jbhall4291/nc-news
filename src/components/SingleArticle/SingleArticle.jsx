@@ -5,7 +5,7 @@ import Comments from "../Comments/Comments";
 import "./SingleArticle.css";
 import { convertTimeAndDate } from "../../utils/functions";
 import ActivityIndicator from "../ActivityIndicator/ActivityIndicator";
-import { deleteArticle } from "../../utils/api";
+import { deleteArticle, getAllTopics } from "../../utils/api";
 
 import { useNavigate } from "react-router-dom";
 
@@ -76,13 +76,15 @@ const SingleArticle = (props) => {
   };
 
   const removeArticle = () => {
-    console.log(props.loggedInUser + articleData.author);
     setIsRemovingArticle(true);
     setRemoveArticleButtonText("REMOVING...");
     deleteArticle(article_id)
       .then(() => {
-        setRemoveArticleButtonText("REMOVED! please refresh page");
+        setRemoveArticleButtonText("REMOVED!");
         navigate("/articles");
+        getAllTopics().then((results) => {
+          props.setAllTopics(results);
+        });
       })
       .catch((error) => {
         setRemoveArticleButtonText(error.message + `\n (try again)`);

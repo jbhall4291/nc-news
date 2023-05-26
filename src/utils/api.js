@@ -65,6 +65,7 @@ export const deleteComment = (comment_id) => {
 };
 
 export const getAllUsers = (article_id) => {
+  
   return newsAPI.get(`/users`).then((res) => {
     const allUsers = res.data.allUsers;
     return allUsers;
@@ -101,4 +102,18 @@ export const getAllTopics = () => {
 
 export const deleteArticle = (article_id) => {
   return newsAPI.delete(`/articles/${article_id}`);
+};
+
+
+export const postTopic = (slug, description) => {
+  const topicObject = {
+    slug: slug,
+    description: description,
+  };
+  return newsAPI
+    .post(`/topics`, topicObject)
+    .then((res) => {
+      const topicInserted = res.data.topicInserted;
+      return topicInserted;
+    });
 };
