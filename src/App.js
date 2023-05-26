@@ -1,18 +1,35 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Articles from "./components/Articles/Articles";
 import Header from "./components/Header/Header";
 import SingleArticle from "./components/SingleArticle/SingleArticle";
 import Users from "./components/Users/Users";
 import AddArticle from "./components/AddArticle/AddArticle";
 import Modal from "./components/Modal/Modal";
+import { getAllTopics } from "./utils/api";
+
 function App() {
   const [loggedInUser, setLoggedInUser] = useState("cooljmessy");
 
+  const [allTopics, setAllTopics] = useState([]);
+  const [topicsLoading, setTopicsLoading] = useState(true);
+
+  useEffect(() => {
+    setTopicsLoading(true);
+    getAllTopics().then((result) => {
+      setAllTopics(result);
+      setTopicsLoading(false);
+    });
+  }, []);
+
   return (
     <div className="App">
-      <Header />
+      <Header
+        allTopics={allTopics}
+        setAllTopics={setAllTopics}
+        topicsLoading={topicsLoading}
+      />
       <Modal />
       <Routes>
         <Route
@@ -26,11 +43,7 @@ function App() {
         />
         <Route
           path="/addArticle"
-          element={
-            <AddArticle
-              loggedInUser={loggedInUser}
-            />
-          }
+          element={<AddArticle loggedInUser={loggedInUser} />}
         />
         <Route path="/" element={<Articles />} />
         <Route path="/articles" element={<Articles />} />

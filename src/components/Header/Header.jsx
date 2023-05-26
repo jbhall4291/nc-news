@@ -5,23 +5,14 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 
 
-const Header = () => {
+const Header = (props) => {
   const [selectedTopic, setSelectedTopic] = useState("allTopics");
-  const [allTopics, setAllTopics] = useState([]);
-  const [topicsLoading, setTopicsLoading] = useState(true);
-
+  
   function handleTopicClick(topic) {
     setSelectedTopic(topic);
   }
 
-  useEffect(() => {
-    setTopicsLoading(true);
-    getAllTopics().then((result) => {
-      setAllTopics(result);
-      setTopicsLoading(false);
-    });
-  }, []);
-
+  
   return (
     <header>
       <h1>
@@ -43,7 +34,7 @@ const Header = () => {
         <i className="add-article fa-solid fa-plus"></i>
       </Link>
 
-      {topicsLoading ? (
+      {props.topicsLoading ? (
         <div className="Header__div--loading-topics">fetching topics, please wait</div>
       ) : (
         <nav>
@@ -59,7 +50,7 @@ const Header = () => {
 >
   ALL ARTICLES
 </Link>
-{allTopics.map((topic) => {
+{props.allTopics.map((topic) => {
   return (
     <Link
       key={topic.slug}
