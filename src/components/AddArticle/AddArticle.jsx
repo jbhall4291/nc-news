@@ -58,6 +58,17 @@ function AddArticle(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // if (articleImgUrl) {
+    //   //if an image url was passed, validate it
+    //   var httpPattern = /^https?:\/\/.*$/i;
+    //   var imageSuffix = /\.(jpg|jpeg|png|gif|bmp)$/i;
+    //   if (!httpPattern.test(articleImgUrl) || !imageSuffix.test(articleImgUrl)) {
+    //     //image url failed at least one validation, inform user
+    //     console.log("wrong!")
+    //   }
+    // }
+
     setSubmissionFeedback(true);
     setSubmissionFeedbackMessage("ADDING ARTICLE...");
 
@@ -183,6 +194,8 @@ function AddArticle(props) {
             id="articleImgUrl"
             value={articleImgUrl}
             onChange={(e) => setArticleImgUrl(e.target.value)}
+            pattern="https?://.*\.(jpg|jpeg|png|gif|bmp)$"
+            title="Please enter an image URL ending with jpg, jpeg, png, gif, or bmp"
           />
         </div>
 
