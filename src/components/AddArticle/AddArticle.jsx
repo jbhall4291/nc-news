@@ -59,16 +59,6 @@ function AddArticle(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (articleImgUrl) {
-    //   //if an image url was passed, validate it
-    //   var httpPattern = /^https?:\/\/.*$/i;
-    //   var imageSuffix = /\.(jpg|jpeg|png|gif|bmp)$/i;
-    //   if (!httpPattern.test(articleImgUrl) || !imageSuffix.test(articleImgUrl)) {
-    //     //image url failed at least one validation, inform user
-    //     console.log("wrong!")
-    //   }
-    // }
-
     setSubmissionFeedback(true);
     setSubmissionFeedbackMessage("ADDING ARTICLE...");
 
@@ -167,7 +157,7 @@ function AddArticle(props) {
                 type="text"
                 value={customTopic}
                 onChange={handleCustomTopicChange}
-                placeholder="Enter a custom topic"
+                placeholder="Enter a topic name"
                 required
               />
               <input
@@ -175,7 +165,7 @@ function AddArticle(props) {
                 type="text"
                 value={customTopicDescription}
                 onChange={handleCustomTopicDescriptionChange}
-                placeholder="Enter a custom topic description"
+                placeholder="Enter a topic description"
                 required
               />
             </>

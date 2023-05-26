@@ -5,12 +5,9 @@
   padding: 20px;
 }
 
-
-
 #author {
   background-color: lightgrey;
   color: rgba(0, 0, 0, 0.6);
-
 }
 .AddArticle__div--form-group__label {
   display: block;
@@ -20,8 +17,8 @@
 
 .AddArticle__input[type="text"],
 .AddArticle__textarea,
-.AddArticle__select
- {
+.AddArticle__select {
+  color: var(--black);
   box-sizing: border-box;
   margin-bottom: 20px;
   width: 80%;
@@ -32,6 +29,13 @@
   border-color: var(--black);
   border-style: solid;
   border-width: 3px;
+}
+
+.AddArticle__input[type="text"]:focus,
+.AddArticle__textarea:focus,
+.AddArticle__select:focus {
+  outline: 2px solid transparent;
+  border: 2px solid #ffd700;
 }
 
 .AddArticle__button {
