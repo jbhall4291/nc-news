@@ -43,7 +43,7 @@ function App() {
         />
         <Route
           path="/addArticle"
-          element={<AddArticle loggedInUser={loggedInUser} />}
+          element={<AddArticle loggedInUser={loggedInUser} allTopics={allTopics} setAllTopics={setAllTopics} />}
         />
         <Route path="/" element={<Articles />} />
         <Route path="/articles" element={<Articles />} />

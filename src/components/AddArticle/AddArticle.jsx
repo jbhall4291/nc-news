@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./AddArticle.css";
 import { postArticle } from "../../utils/api";
-import { getAllTopics, postTopic } from "../../utils/api";
+import { postTopic, getAllTopics } from "../../utils/api";
 
 function AddArticle(props) {
+  //user input states
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [topic, setTopic] = useState("");
-  const [topics, setTopics] = useState([]);
 
   const [customTopic, setCustomTopic] = useState("");
   const [customTopicDescription, setCustomTopicDescription] =
     useState("no description");
 
-  const handleTopicChange = (event) => {
-    const selectedTopic = event.target.value;
-    setTopic(selectedTopic);
-  };
+  // const handleTopicChange = (event) => {
+  //   const selectedTopic = event.target.value;
+  //   setTopic(selectedTopic);
+  // };
 
   const handleCustomTopicChange = (event) => {
     setCustomTopic(event.target.value);
@@ -32,7 +32,6 @@ function AddArticle(props) {
 
   const postAnArticle = () => {
     setIsPosting(true);
-
     postArticle(
       props.loggedInUser,
       title,
@@ -67,29 +66,36 @@ function AddArticle(props) {
       postAnArticle();
     } else if (
       customTopic &&
-      topics.some((topic) => topic.slug === customTopic.toLowerCase())
+      props.allTopics.some((topic) => topic.slug === customTopic.toLowerCase())
     ) {
       //user selected CUSTOM TOPIC but its one that already exists!
       postAnArticle();
     } else {
       //custom topic provided, that does not already exist
-      postTopic(customTopic, customTopicDescription).then(() => {
-        postAnArticle();
-      });
+      postTopic(customTopic, customTopicDescription)
+        .then(() => {
+          return postAnArticle();
+        })
+        .then(() => {
+          return getAllTopics();
+        })
+        .then((result) => {
+          props.setAllTopics(result);
+        });
     }
   };
 
-  useEffect(() => {
-    // Fetch the topics from the API and set them in the state
-    getAllTopics()
-      .then((data) => {
-        setTopics(data);
-      })
-      .catch((error) => {
-        // Handle error
-        console.error("Error:", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // Fetch the topics from the API and set them in the state
+  //   getAllTopics()
+  //     .then((data) => {
+  //       setTopics(data);
+  //     })
+  //     .catch((error) => {
+  //       // Handle error
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
 
   return (
     <section className="AddArticle__section">
@@ -147,7 +153,7 @@ function AddArticle(props) {
             required
           >
             <option value="">Select a topic</option>
-            {topics.map((topic) => (
+            {props.allTopics.map((topic) => (
               <option key={topic.slug} value={topic.slug}>
                 {topic.slug}
               </option>
